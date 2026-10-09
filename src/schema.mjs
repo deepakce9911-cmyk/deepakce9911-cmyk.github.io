@@ -108,7 +108,7 @@ export function articleGraph({ page, site, env, wordCount }) {
       mainEntity: { '@id': id('article') },
       about: { '@id': meta.subject.id },
       mentions: { '@id': id('competitor') },
-      speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.short-answer', '.key-takeaways'] },
+      speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.quick-verdict', '.key-takeaways'] },
       potentialAction: { '@type': 'ReadAction', target: [pageUrl] },
       hasPart: [
         page.faqs.length && { '@id': id('faq') },

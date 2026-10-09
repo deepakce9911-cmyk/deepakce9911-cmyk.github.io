@@ -1,6 +1,6 @@
 // Turns a content file into a page model and renders the article body.
 // Conventions in the Markdown (see README):
-//   **Short answer:** ...        first paragraph, the answer AI engines and readers see first
+//   **Quick verdict:** ...       first paragraph, the answer AI engines and readers see first
 //   > **Key takeaways** + bullets the summary box under the intro
 //   > **Key takeaway:** ...       the one-line takeaway closing a section
 //   ## Frequently asked questions  ### question + answer paragraph(s)
@@ -102,8 +102,8 @@ function renderQuote(token) {
 function renderBlock(token, context) {
   switch (token.type) {
     case 'paragraph':
-      return /^\*\*Short answer:\*\*/.test(token.text)
-        ? `<p class="short-answer">${renderInline(token.text)}</p>`
+      return /^\*\*Quick verdict:\*\*/.test(token.text)
+        ? `<p class="quick-verdict">${renderInline(token.text)}</p>`
         : `<p>${renderInline(token.text)}</p>`;
     case 'quote':
       return renderQuote(token);

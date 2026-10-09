@@ -43,7 +43,7 @@ Publish a change: edit `content/posts/*.md`, run `npm run build && npm run check
 
 Front matter (JSON between `---` lines) holds the title tag, meta description, dates, keywords, image, and the products the post is about. The Markdown body uses a few conventions:
 
-- `**Short answer:** ...` as the first paragraph: the answer readers and AI engines see first
+- `**Quick verdict:** ...` as the first paragraph: the answer readers and AI engines see first
 - `> **Key takeaways**` followed by bullets: the summary box under the intro
 - `> **Key takeaway:** ...` at the end of a section: the one-line takeaway
 - `## Frequently asked questions` with `###` questions: also emitted as FAQPage
