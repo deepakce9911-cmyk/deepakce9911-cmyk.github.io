@@ -140,7 +140,7 @@ With Dextr, Daisy checks availability in your booking software, quotes the rate,
 
 With Canary, AI Voice also answers around the clock, books the stay and can change an existing booking, and the booking appears in your booking software. Canary says its agent decides when to offer upsells and cross-sells during the call.
 
-Both offer extras on the call. Dextr offers extras such as late checkout, firewood and golf carts. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried 15 to 17% higher average room rates.
+Both offer extras on the call. Dextr offers extras such as late checkout, firewood and golf carts. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried [15 to 17% higher average room rates](https://www.dextr.ai/case-studies/reservation-contact-centers/).
 
 > **Key takeaway:** both can take the booking end to end. Daisy also handles cancellations; Canary's AI chooses when to offer upsells.
 
