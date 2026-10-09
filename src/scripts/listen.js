@@ -7,7 +7,7 @@
   if (!player || !article || !('speechSynthesis' in window)) return;
 
   const synth = window.speechSynthesis;
-  const SKIP = '.section--sources, .table-wrap, .byline, .listen, .summarize, .author-cards, .cta-actions, .toc';
+  const SKIP = '.section--sources, .table-wrap, .breadcrumbs, .tags, .byline, .toolbar, .box-label, .box-title, .author-cards, .cta-actions';
   const blocks = [...article.querySelectorAll('h1, h2, h3, p, li')]
     .filter((el) => !el.closest(SKIP) && !el.querySelector('p, li') && el.innerText.trim())
     .map((el) => ({ el, text: el.innerText.replace(/\s+/g, ' ').trim() }));
@@ -108,3 +108,20 @@ document.querySelectorAll('[data-copy-prompt]').forEach((link) => {
     if (note) note.textContent = 'Prompt copied. Paste it into Gemini.';
   });
 });
+
+// Sidebar contents: highlight the section currently on screen.
+(() => {
+  const links = new Map([...document.querySelectorAll('.toc a')].map((a) => [a.getAttribute('href').slice(1), a]));
+  if (!links.size || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        links.forEach((a) => a.classList.remove('is-active'));
+        links.get(entry.target.id)?.classList.add('is-active');
+      }
+    },
+    { rootMargin: '-15% 0px -75% 0px' },
+  );
+  links.forEach((_, id) => { const h = document.getElementById(id); if (h) observer.observe(h); });
+})();

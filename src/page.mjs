@@ -72,6 +72,8 @@ function extractSources(section) {
 
 // ---------- rendering ----------
 
+const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
+
 function renderTable(token, caption) {
   const head = token.head.map((cell) => `<th scope="col">${renderInline(cell)}</th>`).join('');
   const rows = token.rows
@@ -94,7 +96,8 @@ function renderQuote(token) {
     return `<aside class="key-takeaways" aria-labelledby="key-takeaways-title">\n<p class="box-title" id="key-takeaways-title">Key takeaways</p>\n<ul>\n${items}\n</ul>\n</aside>`;
   }
   if (/^\*\*Key takeaway:\*\*/.test(token.text)) {
-    return `<aside class="takeaway" aria-label="Key takeaway">\n<p>${renderInline(token.text)}</p>\n</aside>`;
+    const text = token.text.replace(/^\*\*Key takeaway:\*\*\s*/, '');
+    return `<aside class="takeaway" aria-label="Key takeaway">\n<p class="box-label">Key takeaway</p>\n<p>${renderInline(capitalize(text))}</p>\n</aside>`;
   }
   return `<blockquote>\n<p>${renderInline(token.text)}</p>\n</blockquote>`;
 }
@@ -102,9 +105,11 @@ function renderQuote(token) {
 function renderBlock(token, context) {
   switch (token.type) {
     case 'paragraph':
-      return /^\*\*Quick verdict:\*\*/.test(token.text)
-        ? `<p class="quick-verdict">${renderInline(token.text)}</p>`
-        : `<p>${renderInline(token.text)}</p>`;
+      if (/^\*\*Quick verdict:\*\*/.test(token.text)) {
+        const answer = token.text.replace(/^\*\*Quick verdict:\*\*\s*/, '');
+        return `<div class="quick-verdict">\n<p class="box-label">Quick verdict</p>\n<p>${renderInline(capitalize(answer))}</p>\n</div>`;
+      }
+      return `<p>${renderInline(token.text)}</p>`;
     case 'quote':
       return renderQuote(token);
     case 'list': {
@@ -144,7 +149,12 @@ function renderSection(section, page) {
 
   const cta = page.meta.cta;
   const isCta = cta && section.title === cta.section;
-  if (isCta) body += `\n<p class="cta-actions"><a class="button" href="${escapeHtml(cta.url)}">${escapeHtml(cta.label)}</a></p>`;
+  if (isCta) {
+    const buttons = (cta.buttons ?? [{ label: cta.label, url: cta.url }])
+      .map((b, i) => `<a class="pill ${i === 0 ? 'pill--light' : 'pill--ghost'}" href="${escapeHtml(b.url)}" rel="noopener" target="_blank">${escapeHtml(b.label)}</a>`)
+      .join('');
+    body += `\n<p class="cta-actions">${buttons}</p>`;
+  }
 
   const classes = ['section', isCta && 'section--cta', isSection(section.title, SOURCES) && 'section--sources'].filter(Boolean).join(' ');
   return `<section class="${classes}" aria-labelledby="${section.id}">\n<h2 id="${section.id}">${renderInline(section.title)}</h2>\n${body}\n</section>`;

@@ -64,8 +64,10 @@ export function build(envName) {
   const pages = loadPages(env, site);
 
   for (const page of pages) {
-    const schema = articleGraph({ page, site, env, wordCount: wordCount(page) });
-    const html = articleDocument({ page, site, env, root: ROOT_PATH, body: renderArticleBody(page), schema });
+    const words = wordCount(page);
+    const schema = articleGraph({ page, site, env, wordCount: words });
+    const readMinutes = Math.max(1, Math.round(words / 230));
+    const html = articleDocument({ page, site, env, root: ROOT_PATH, body: renderArticleBody(page), schema, readMinutes });
     write(outDir, `${page.meta.slug.replace(/^\//, '')}index.html`, html);
   }
 

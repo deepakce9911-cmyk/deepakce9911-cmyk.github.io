@@ -30,281 +30,298 @@
 <meta property="article:tag" content="AI voice agent for hotels">
 <meta property="article:tag" content="hotel AI phone answering">
 <meta property="article:tag" content="AI phone answering for campgrounds">
-<meta name="theme-color" content="#141B34">
+<meta name="theme-color" content="#f7f7f7">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&family=Sora:wght@700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&family=Sora:wght@700;800&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&family=Sora:wght@700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
 <style>
-/* Layout: a reading column with a sticky "On this page" rail on wide screens.
-   Comparison tables and takeaway boxes carry the structure; everything else is plain text. */
+/* Layout: Dextr-style article. Light grey page, a left sidebar with post facts and contents,
+   one reading column, warm gold accents for labelled boxes, black pill buttons. */
 
 :root {
-  --bg: #fbfaf7;
+  --page: #f7f7f7;
   --surface: #ffffff;
-  --ink: #141b34;
-  --text: #2b3147;
-  --muted: #5f6478;
-  --rule: #e3e1da;
-  --accent: #b8742a;
-  --accent-ink: #7a4c14;
-  --tint: #fff4e3;
-  --tint-cool: #eef2fb;
-  --font-display: 'Sora', 'Segoe UI', Arial, sans-serif;
-  --font-body: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
-  --font-mono: 'IBM Plex Mono', Consolas, monospace;
-  --measure: 46rem;
-  --gutter: 1rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #101421;
-    --surface: #171c2c;
-    --ink: #f2f3f7;
-    --text: #d6d9e3;
-    --muted: #a3a9bd;
-    --rule: #2a3044;
-    --accent: #e0a35a;
-    --accent-ink: #f3c98a;
-    --tint: #2a2316;
-    --tint-cool: #1b2238;
-    color-scheme: dark;
-  }
+  --navy: #162144;
+  --text: #3b4458;
+  --muted: #6b7285;
+  --faint: #9aa0ad;
+  --rule: #e4e2de;
+  --gold: #a07a2c;
+  --gold-line: #c8933a;
+  --sand: #f3efe8;
+  --sand-strong: #ece6db;
+  --orange: #f47a38;
+  --black: #0f0f10;
+  --radius: 14px;
+  --font: 'Host Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --column: 44rem;
 }
 
 /* ---------- base ---------- */
 
 *, *::before, *::after { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
-
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--page);
   color: var(--text);
-  font: 400 1.0625rem/1.6 var(--font-body);
+  font: 400 1.0625rem/1.7 var(--font);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
-  color: var(--ink);
-  font-family: var(--font-display);
-  line-height: 1.2;
-  text-wrap: balance;
-}
+h1, h2, h3 { color: var(--navy); font-family: var(--font); text-wrap: balance; }
+h1 { font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1rem; }
+h2 { font-size: 1.5rem; font-weight: 700; line-height: 1.25; margin: 3.5rem 0 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gold-line); scroll-margin-top: 5.5rem; }
+h3 { font-size: 1.125rem; font-weight: 700; margin: 1.75rem 0 0.4rem; scroll-margin-top: 5.5rem; }
 
-h1 { font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 0.75rem; }
-h2 { font-size: clamp(1.35rem, 2.6vw, 1.7rem); font-weight: 700; margin: 3.25rem 0 1rem; scroll-margin-top: 1rem; }
-h3 { font-size: 1.125rem; font-weight: 700; margin: 1.75rem 0 0.5rem; scroll-margin-top: 1rem; }
+p, ul, ol { margin: 0 0 1.1rem; }
+ul, ol { padding-left: 1.25rem; }
+li { margin: 0.4rem 0; padding-left: 0.2rem; }
+li::marker { color: var(--gold-line); }
+strong { color: var(--navy); font-weight: 600; }
 
-p, ul, ol { margin: 0 0 1rem; max-width: var(--measure); }
-ul, ol { padding-left: 1.4rem; }
-li { margin: 0.35rem 0; }
-li::marker { color: var(--accent); }
-strong { color: var(--ink); }
+a { color: var(--navy); text-decoration-color: var(--gold-line); text-underline-offset: 0.2em; overflow-wrap: anywhere; }
+a:hover { color: var(--orange); }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; border-radius: 4px; }
 
-a { color: var(--accent-ink); overflow-wrap: anywhere; text-underline-offset: 0.15em; }
-a:hover { color: var(--ink); }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.container { max-width: 70rem; margin: 0 auto; padding-inline: 1.25rem; }
+.skip-link { position: absolute; left: -999px; top: 0.5rem; z-index: 20; }
+.skip-link:focus { left: 0.5rem; background: var(--surface); padding: 0.5rem 0.75rem; border-radius: 8px; }
 
-.container { max-width: 74rem; margin: 0 auto; padding-inline: var(--gutter); }
+/* ---------- buttons ---------- */
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  font: 500 0.875rem/1 var(--font);
+  text-decoration: none;
   white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-
-.skip-link { position: absolute; left: -999px; top: 0.5rem; z-index: 10; }
-.skip-link:focus { left: 0.5rem; background: var(--surface); padding: 0.5rem 0.75rem; border-radius: 0.375rem; }
+.pill--dark { background: var(--black); color: #fff; }
+.pill--dark:hover { background: var(--navy); color: #fff; }
+.pill--light { background: #fff; color: var(--black); }
+.pill--light:hover { background: var(--sand); color: var(--black); }
+.pill--ghost { border: 1px solid rgba(255, 255, 255, 0.28); color: #fff; }
+.pill--ghost:hover { border-color: #fff; color: #fff; }
 
 /* ---------- site chrome ---------- */
 
-.banner {
-  background: var(--tint-cool);
+.banner { background: var(--black); color: #fff; font-size: 0.8125rem; text-align: center; padding: 0.55rem 1rem; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 247, 247, 0.85);
+  backdrop-filter: saturate(160%) blur(12px);
   border-bottom: 1px solid var(--rule);
-  color: var(--muted);
-  font: 400 0.8125rem/1.4 var(--font-mono);
-  padding: 0.5rem var(--gutter);
-  text-align: center;
 }
+.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; }
+.brand { color: var(--black); font: 600 1.25rem/1 var(--font); letter-spacing: -0.01em; text-decoration: none; }
+.brand:hover { color: var(--black); }
 
-.site-header { border-bottom: 1px solid var(--rule); }
-.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.875rem; }
-.brand { color: var(--ink); font: 800 1.25rem/1 var(--font-display); text-decoration: none; letter-spacing: -0.01em; }
-.header-link { font-weight: 600; font-size: 0.9375rem; }
-
-.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; margin: 0; padding: 1rem 0 0; font: 400 0.8125rem/1.4 var(--font-mono); color: var(--muted); }
-.breadcrumbs li { margin: 0; }
-.breadcrumbs li + li::before { content: '/'; margin-right: 0.5rem; color: var(--rule); }
-.breadcrumbs a { color: var(--muted); text-decoration: none; }
-.breadcrumbs a:hover { color: var(--ink); text-decoration: underline; }
-
-.site-footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-block: 1.5rem; color: var(--muted); font-size: 0.875rem; }
+.site-footer { border-top: 1px solid var(--rule); margin-top: 5rem; padding-block: 2rem; color: var(--faint); font-size: 0.875rem; }
 .site-footer p { margin: 0; }
 
 /* ---------- layout ---------- */
 
-.layout { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 3rem; align-items: start; padding-top: 1.5rem; }
-.content { min-width: 0; }
-.content--wide { padding-top: 1.5rem; }
+.layout { display: grid; grid-template-columns: 14.5rem minmax(0, 1fr); gap: 4rem; align-items: start; padding-top: 3rem; }
+.content { min-width: 0; max-width: var(--column); }
 
-.toc { position: sticky; top: 1rem; font-size: 0.875rem; }
-.toc__title { font: 700 0.75rem/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
-.toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--rule); }
-.toc li { margin: 0; }
-.toc a { display: block; padding: 0.3rem 0 0.3rem 0.75rem; margin-left: -2px; border-left: 2px solid transparent; color: var(--text); text-decoration: none; }
-.toc a:hover { border-left-color: var(--accent); color: var(--ink); }
+.sidebar { position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow-y: auto; font-size: 0.875rem; }
+.eyebrow { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 1.5rem; color: var(--muted); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+.eyebrow::before { content: ''; width: 1.25rem; height: 1px; background: var(--faint); }
+
+.facts { margin: 0 0 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }
+.facts div { margin-bottom: 0.85rem; }
+.facts dt { color: var(--faint); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.facts dd { margin: 0.1rem 0 0; color: var(--navy); }
+
+.toc__title { margin: 0 0 0.75rem; color: var(--faint); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 0; padding: 0; }
+.toc a { display: block; padding: 0.3rem 0; color: var(--muted); text-decoration: none; line-height: 1.4; }
+.toc a:hover, .toc a.is-active { color: var(--orange); }
 
 @media (max-width: 60rem) {
-  .layout { grid-template-columns: minmax(0, 1fr); }
-  .toc { display: none; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 1.75rem; }
+  .sidebar { display: none; }
 }
 
-/* ---------- article ---------- */
+/* ---------- article header ---------- */
 
-.article-header { margin-bottom: 1.5rem; }
-.byline { color: var(--muted); font: 400 0.8125rem/1.4 var(--font-mono); margin: 0; }
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 1rem; padding: 0; font-size: 0.8125rem; color: var(--faint); }
+.breadcrumbs li { margin: 0; padding: 0; }
+.breadcrumbs li + li::before { content: '/'; margin-right: 0.35rem; }
+.breadcrumbs a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--orange); }
 
-.quick-verdict { font-size: 1.1875rem; line-height: 1.55; color: var(--ink); }
+.tags { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-size: 0.875rem; color: var(--muted); }
+.tags span::before { content: '·'; margin-right: 0.6rem; color: var(--faint); }
+.tag { display: inline-block; padding: 0.3rem 0.75rem; border-radius: 999px; background: var(--sand-strong); color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
 
-.key-takeaways,
-.takeaway {
-  max-width: var(--measure);
-  border-radius: 0 0.5rem 0.5rem 0;
-  margin: 1.5rem 0;
-  padding: 0.875rem 1.125rem;
+.dek { margin: 0 0 1.5rem; color: var(--muted); font-size: 1.125rem; font-style: italic; line-height: 1.6; }
+
+.byline { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.75rem; }
+.byline p { margin: 0; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+.byline a { color: var(--navy); font-weight: 600; text-decoration: none; }
+.byline a:hover { color: var(--orange); }
+.dot { display: inline-block; width: 3px; height: 3px; margin: 0 0.4rem; border-radius: 50%; background: var(--faint); vertical-align: middle; }
+
+.avatar { flex: none; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 600; font-size: 1rem; }
+.avatar--sm { width: 2.25rem; height: 2.25rem; font-size: 0.8125rem; }
+
+.hero { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+
+/* ---------- toolbar: listen + summarize ---------- */
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.25rem 0 2.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }
+
+.listen { display: flex; align-items: center; gap: 0.75rem; min-width: 15rem; }
+.listen[hidden] { display: none; }
+.listen__play { flex: none; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: var(--black); color: #fff; cursor: pointer; transition: background 0.15s ease; }
+.listen__play:hover { background: var(--navy); }
+.listen__play svg { width: 1rem; height: 1rem; fill: currentColor; }
+.listen__play[data-state="paused"] .icon-pause, .listen__play[data-state="playing"] .icon-play { display: none; }
+.listen__body { display: grid; grid-template-columns: auto 1fr; column-gap: 0.5rem; row-gap: 0.35rem; align-items: baseline; min-width: 9rem; }
+.listen__title { color: var(--navy); font-size: 0.875rem; font-weight: 600; }
+.listen__status { color: var(--faint); font-size: 0.8125rem; }
+.listen__bar { grid-column: 1 / -1; display: block; height: 3px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.listen__bar span { display: block; height: 100%; width: 0; background: var(--orange); transition: width 0.3s ease; }
+.listen__speed { flex: none; padding: 0.35rem 0.55rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--navy); font: 600 0.75rem/1 var(--font); cursor: pointer; }
+.listen__speed:hover { border-color: var(--navy); }
+.is-speaking { background: var(--sand); box-shadow: 0 0 0 0.4rem var(--sand); border-radius: 4px; }
+
+.summarize { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.summarize__label { color: var(--faint); font-size: 0.8125rem; }
+.summarize__links { display: flex; gap: 0.35rem; }
+.ai-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--navy);
+  transition: border-color 0.15s ease, transform 0.15s ease, color 0.15s ease;
 }
-.key-takeaways { background: var(--tint); border-left: 4px solid var(--accent); }
-.key-takeaways ul { margin: 0; }
-.box-title { font: 700 0.75rem/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 0.5rem; }
-.takeaway { background: var(--tint-cool); border-left: 4px solid var(--ink); }
-.takeaway p { margin: 0; }
+.ai-link svg { width: 1rem; height: 1rem; }
+.ai-link:hover { border-color: var(--navy); color: var(--black); transform: translateY(-1px); }
+.ai-link::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.45rem);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  background: var(--black);
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.ai-link:last-child::after { left: auto; right: 0; transform: none; }
+.ai-link:hover::after, .ai-link:focus-visible::after { opacity: 1; }
+.summarize__note { flex-basis: 100%; color: var(--muted); font-size: 0.8125rem; text-align: right; }
+.summarize__note:empty { display: none; }
 
-.table-wrap { max-width: var(--measure); overflow-x: auto; margin: 1.25rem 0 1.5rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 0.625rem; }
-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
-th, td { padding: 0.65rem 0.75rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); min-width: 8.5rem; }
-thead th { background: var(--tint-cool); color: var(--ink); font: 600 0.8125rem/1.3 var(--font-display); }
-thead th:nth-child(2) { color: var(--accent-ink); }
-tbody th { color: var(--ink); font-weight: 600; }
-tbody td:nth-child(2) { background: var(--tint); }
+/* ---------- article body boxes ---------- */
+
+.box-label { margin: 0 0 0.35rem !important; color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.quick-verdict {
+  margin: 0 0 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold-line);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--sand);
+}
+.quick-verdict p:last-child { margin: 0; color: var(--navy); font-size: 1.0625rem; }
+
+.key-takeaways { margin: 2rem 0; padding: 1.25rem 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); }
+.key-takeaways .box-title { margin: 0 0 0.5rem; color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.key-takeaways ul { margin: 0; padding-left: 1.1rem; }
+
+.takeaway { margin: 1.75rem 0 0; padding: 1rem 1.25rem; border-radius: 10px; background: var(--sand); }
+.takeaway p:last-child { margin: 0; color: var(--navy); }
+
+/* ---------- tables ---------- */
+
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.5; }
+th, td { padding: 0.9rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); min-width: 9rem; }
+thead th { color: var(--navy); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom-color: var(--sand-strong); }
+thead th:nth-child(2) { background: var(--sand); color: var(--gold); }
+tbody th { color: var(--black); font-weight: 600; }
+tbody td { color: var(--text); }
+tbody td:nth-child(2) { background: var(--sand); }
 tbody tr:last-child > * { border-bottom: 0; }
 
-.faq-item h3 { margin-top: 1.5rem; }
+/* ---------- FAQ, CTA, sources ---------- */
 
-.section--cta { background: var(--surface); border: 1px solid var(--rule); border-radius: 0.75rem; padding: 0.25rem 1.5rem 1.25rem; margin-top: 3.25rem; }
-.section--cta h2 { margin-top: 1.25rem; }
-.cta-actions { margin-top: 1.25rem; }
-.button { display: inline-block; background: var(--ink); color: var(--bg); font: 700 1rem/1 var(--font-display); padding: 0.85rem 1.4rem; border-radius: 0.5rem; text-decoration: none; }
-.button:hover { color: var(--bg); background: var(--accent-ink); }
+.faq-item { padding: 0.25rem 0 0.75rem; border-bottom: 1px solid var(--rule); }
+.faq-item h3 { margin-top: 1.25rem; }
+.faq-item p { margin-bottom: 0.5rem; }
 
+.section--cta { margin-top: 3.5rem; padding: 2rem 2rem 1.75rem; border-radius: var(--radius); background: var(--black); color: rgba(255, 255, 255, 0.78); }
+.section--cta h2 { margin-top: 0; color: #fff; border-bottom-color: rgba(255, 255, 255, 0.18); }
+.section--cta strong { color: #fff; }
+.section--cta li::marker { color: var(--gold-line); }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0; }
+
+.section--sources h2 { font-size: 1.125rem; }
 .section--sources ol { font-size: 0.875rem; color: var(--muted); }
+.section--sources a { color: var(--muted); }
+.section--sources a:hover { color: var(--orange); }
+
+/* ---------- author cards ---------- */
+
+.author-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-top: 3rem; }
+.person-card { display: flex; gap: 1rem; padding: 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); scroll-margin-top: 5.5rem; }
+.person-card p { margin: 0; }
+.person-card__role { color: var(--faint); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.person-card__name { color: var(--navy); font-weight: 700; font-size: 1.0625rem; }
+.person-card__title { color: var(--gold); font-size: 0.875rem; margin-bottom: 0.4rem !important; }
+.person-card__bio { font-size: 0.9375rem; line-height: 1.55; }
 
 /* ---------- listing pages ---------- */
 
-.lede { font-size: 1.1875rem; color: var(--ink); }
-.section-label { margin-top: 2rem; }
-.cards { list-style: none; padding: 0; display: grid; gap: 1rem; max-width: var(--measure); }
-.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin: 0; }
-.card h2 { margin: 0 0 0.5rem; font-size: 1.25rem; }
-.card h2 a { color: var(--ink); text-decoration: none; }
-.card h2 a:hover { text-decoration: underline; }
-.card p { margin-bottom: 0.5rem; }
+.listing { padding-top: 3rem; max-width: 56rem; }
+.listing .dek { max-width: 40rem; }
+.cards { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.25rem; margin: 2rem 0 0; padding: 0; }
+.card { margin: 0; padding: 0; }
+.card__link { display: block; height: 100%; overflow: hidden; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); text-decoration: none; transition: border-color 0.15s ease, transform 0.15s ease; }
+.card__link:hover { border-color: var(--navy); transform: translateY(-2px); }
+.card__link img { display: block; width: 100%; height: auto; }
+.card__body { display: grid; gap: 0.5rem; padding: 1.25rem; }
+.card__body .tag { justify-self: start; }
+.card__title { color: var(--navy); font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
+.card__text { color: var(--text); font-size: 0.9375rem; line-height: 1.55; }
+.card__meta { color: var(--faint); font-size: 0.8125rem; }
 
-/* ---------- listen player ---------- */
-
-.listen {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  max-width: var(--measure);
-  margin: 1.25rem 0 0;
-  padding: 0.75rem 1rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 0.75rem;
+@media (max-width: 40rem) {
+  body { font-size: 1rem; }
+  h2 { font-size: 1.3rem; margin-top: 2.75rem; }
+  .toolbar { flex-direction: column; align-items: flex-start; }
+  .summarize__note { text-align: left; }
+  .section--cta { padding: 1.5rem 1.25rem; }
 }
-.listen[hidden] { display: none; }
-.listen__play {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 0;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--bg);
-  cursor: pointer;
-}
-.listen__play svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
-.listen__play[data-state="paused"] .icon-pause,
-.listen__play[data-state="playing"] .icon-play { display: none; }
-.listen__body { flex: 1; min-width: 0; }
-.listen__title { margin: 0 0 0.35rem; font: 600 0.9375rem/1.2 var(--font-body); color: var(--ink); }
-.listen__bar { height: 0.3rem; background: var(--rule); border-radius: 1rem; overflow: hidden; }
-.listen__bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s ease; }
-.listen__status { margin: 0.35rem 0 0; font: 400 0.75rem/1.2 var(--font-mono); color: var(--muted); }
-.listen__speed {
-  flex: none;
-  min-width: 3.25rem;
-  padding: 0.4rem 0.6rem;
-  border: 1px solid var(--rule);
-  border-radius: 0.5rem;
-  background: transparent;
-  color: var(--ink);
-  font: 600 0.8125rem/1 var(--font-mono);
-  cursor: pointer;
-}
-.is-speaking { background: var(--tint); box-shadow: 0 0 0 0.35rem var(--tint); border-radius: 0.25rem; }
-
-/* ---------- summarize with AI ---------- */
-
-.summarize { max-width: var(--measure); margin: 1rem 0 0; }
-.summarize__label { margin: 0 0 0.5rem; font: 700 0.75rem/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.summarize__links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.summarize__link {
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--ink);
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-.summarize__link:hover { border-color: var(--accent); color: var(--accent-ink); }
-.summarize__note { margin: 0.4rem 0 0; min-height: 1em; font-size: 0.8125rem; color: var(--muted); }
-
-/* ---------- author and reviewer ---------- */
-
-.byline a { color: inherit; }
-.author-cards { display: grid; gap: 1rem; max-width: var(--measure); margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
-.person-card { display: flex; gap: 1rem; align-items: flex-start; scroll-margin-top: 1rem; }
-.person-card__avatar {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 50%;
-  background: var(--tint);
-  color: var(--accent-ink);
-  font: 800 1.05rem/1 var(--font-display);
-}
-.person-card p { margin: 0; }
-.person-card__role { font: 400 0.75rem/1.4 var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.person-card__name { font: 700 1.0625rem/1.3 var(--font-display); color: var(--ink); }
-.person-card__title { font-size: 0.9375rem; color: var(--muted); margin-bottom: 0.35rem !important; }
-.person-card__bio { font-size: 0.9375rem; }
 </style>
 <script type="application/ld+json">
 {
@@ -474,7 +491,7 @@ tbody tr:last-child > * { border-bottom: 0; }
         "hotel AI phone answering",
         "AI phone answering for campgrounds"
       ],
-      "wordCount": 2941,
+      "wordCount": 2935,
       "inLanguage": "en-US",
       "about": [
         {
@@ -669,6 +686,31 @@ tbody tr:last-child > * { border-bottom: 0; }
           "@type": "CreativeWork",
           "name": "Wyndham: hotel owner AI survey",
           "url": "https://corporate.wyndhamhotels.com/?p=6604"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Canary: home page and product list",
+          "url": "https://www.canarytechnologies.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Canary: integrations",
+          "url": "https://www.canarytechnologies.com/integrations"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Canary: Wyndham AI Voice rollout",
+          "url": "https://www.canarytechnologies.com/press/canary-wyndham-global-ai-voice"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Canary: The Pines Resort customer story",
+          "url": "https://www.canarytechnologies.com/customers/the-pines-resort"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Canary: customer support",
+          "url": "https://resources.canarytechnologies.com/contact-canary-support.html"
         }
       ]
     },
@@ -744,39 +786,39 @@ tbody tr:last-child > * { border-bottom: 0; }
           "name": "What is the main difference between Dextr and Canary AI Voice?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Dextr builds AI for hospitality phone calls and the work behind them. Its voice agent, Daisy, books stays and sends the deposit payment link during the call. Canary AI Voice is the phone agent inside Canary's guest management platform, which also covers mobile check-in, mobile keys, guest messaging, upsells, tipping and payments."
+            "text": "Dextr builds AI agents around the phone call and hotel operations, and its voice agent sends the deposit payment link during the call. Canary AI Voice is the phone agent inside Canary's guest management platform, which also covers mobile check-in, mobile keys, guest messaging, upsells, tipping and payments."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Daisy take a deposit on the phone?",
+          "name": "Which is better for a small independent hotel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Daisy sends the guest a payment link for the deposit before the call ends. Dextr never stores raw card numbers; your payment processor secures them."
+            "text": "Both serve independent hotels. Dextr suits owners whose bookings come mostly by phone and who want deposits requested on the call. Canary suits owners who also want mobile check-in, keys and guest texting from the same vendor."
           }
         },
         {
           "@type": "Question",
-          "name": "Does Dextr work with my booking software?",
+          "name": "Can either take a deposit on the phone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Dextr lists more than 50 live connections to hotel and rental booking software, including OPERA Cloud, Cloudbeds, Mews, Stayntouch, ResNexus and Hostaway. If yours is missing, Dextr will build the connection."
+            "text": "Dextr sends the guest a payment link for the deposit before the call ends. Canary collects payment through its Payment Links and Digital Authorizations products, which staff or the system send by text or email."
           }
         },
         {
           "@type": "Question",
-          "name": "Is Dextr only for small properties?",
+          "name": "Do they work with my booking software?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Dextr's customers range from a 21-room lodge to a 550-room property group. Its voice AI also works alongside the reservation team of a 50-plus property hotel chain, as well as at campgrounds, RV parks and rentals."
+            "text": "Both connect to the major hotel systems, including Cloudbeds, Mews, Stayntouch and Oracle. Dextr also connects to dozens of vacation-rental systems such as Hostaway. Canary also connects to central reservation systems such as SynXis and Amadeus."
           }
         },
         {
           "@type": "Question",
-          "name": "When is Canary the better fit?",
+          "name": "Which has better support?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Canary fits a brand that wants one platform for mobile check-in, mobile keys, upsells and messaging across many hotels, with a phone agent included. If your priority is answering and converting phone calls, Dextr is built for that."
+            "text": "Canary includes 24/7 support, an onboarding lead and a customer-success manager. Dextr assigns a dedicated engineer and an AI strategist to each client, with support by email."
           }
         },
         {
@@ -784,15 +826,15 @@ tbody tr:last-child > * { border-bottom: 0; }
           "name": "Will guests know they are talking to an AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Daisy tells callers she is an AI if they ask, and never denies it."
+            "text": "Dextr says Daisy tells callers she is an AI if they ask, and never denies it. Canary's pages do not cover this, so ask in the demo."
           }
         },
         {
           "@type": "Question",
-          "name": "How quickly can Dextr be live?",
+          "name": "How quickly can each be live?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "About 7 days after kickoff for one property. Groups go live in waves of 3 to 5 properties."
+            "text": "Dextr plans about 7 days per property. Canary says its AI tools go live in days, not weeks."
           }
         }
       ]
@@ -812,7 +854,7 @@ tbody tr:last-child > * { border-bottom: 0; }
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Can it ask for the deposit before the guest hangs up?"
+          "name": "How does the guest pay the deposit, and when?"
         },
         {
           "@type": "ListItem",
@@ -832,7 +874,7 @@ tbody tr:last-child > * { border-bottom: 0; }
         {
           "@type": "ListItem",
           "position": 6,
-          "name": "After the booking, who sends the door code and books the cleaning?"
+          "name": "What support do I get after go-live, and at what hours?"
         }
       ]
     },
@@ -868,50 +910,84 @@ tbody tr:last-child > * { border-bottom: 0; }
 <header class="site-header">
 <div class="container site-header__inner">
 <a class="brand" href="/">Deepak Sharma</a>
-<a class="header-link" href="/blog/">Blog</a>
+<a class="pill pill--dark" href="/blog/">Blog</a>
 </div>
 </header>
-<nav class="container breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog/">Blog</a></li><li aria-current="page">Dextr vs Canary AI Voice</li></ol></nav>
 <div class="container layout">
+<aside class="sidebar" aria-label="About this post">
+<p class="eyebrow">Blog</p>
+<dl class="facts">
+<div><dt>Category</dt><dd>Buyer's guide</dd></div>
+<div><dt>Read</dt><dd>13 min read</dd></div>
+<div><dt>Written for</dt><dd>Hotel owners, GMs and operators</dd></div>
+<div><dt>Updated</dt><dd><time datetime="2026-10-09T09:00:00+05:30">9 Oct 2026</time></dd></div>
+</dl>
+<nav class="toc" aria-label="On this page">
+<p class="toc__title">On this page</p>
+<ol>
+<li><a href="#dextr-vs-canary-at-a-glance">Dextr vs Canary at a glance</a></li>
+<li><a href="#taking-a-booking-by-phone">Taking a booking by phone</a></li>
+<li><a href="#deposits-and-payments">Deposits and payments</a></li>
+<li><a href="#when-the-ai-cant-answer">When the AI can't answer</a></li>
+<li><a href="#keeping-answers-up-to-date">Keeping answers up to date</a></li>
+<li><a href="#beyond-the-phone">Beyond the phone</a></li>
+<li><a href="#booking-system-connections">Booking-system connections</a></li>
+<li><a href="#campgrounds-rv-parks-and-rentals">Campgrounds, RV parks and rentals</a></li>
+<li><a href="#proof-and-results">Proof and results</a></li>
+<li><a href="#setup-support-and-pricing">Setup, support and pricing</a></li>
+<li><a href="#what-a-missed-call-costs">What a missed call costs</a></li>
+<li><a href="#which-one-fits-your-property">Which one fits your property?</a></li>
+<li><a href="#questions-to-ask-in-any-demo">Questions to ask in any demo</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+<li><a href="#next-steps">Next steps</a></li>
+<li><a href="#sources">Sources</a></li>
+</ol>
+</nav>
+</aside>
 <main id="main" class="content">
 <article>
 <header class="article-header">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog/">Blog</a></li><li aria-current="page">Dextr vs Canary AI Voice</li></ol></nav>
+<p class="tags"><a class="tag" href="/blog/">Comparisons</a><span>Buyer's guide</span></p>
 <h1>Dextr vs Canary AI Voice (2026): which AI should answer your hotel's phone?</h1>
-<p class="byline">By <a href="#author">Deepak Sharma</a> <span aria-hidden="true">&middot;</span> Reviewed by <a href="#reviewer">Daniel Reyes</a> <span aria-hidden="true">&middot;</span> Updated <time datetime="2026-10-09T09:00:00+05:30">9 October 2026</time></p>
+<p class="dek">A side-by-side look at two AI phone agents for hotels: how each takes bookings, handles deposits and hands off to staff, and which properties each one suits.</p>
+<div class="byline">
+<span class="avatar avatar--sm" aria-hidden="true">DS</span>
+<p>By <a href="#author">Deepak Sharma</a> <span class="dot" aria-hidden="true"></span> Reviewed by <a href="#reviewer">Daniel Reyes</a> <span class="dot" aria-hidden="true"></span> <time datetime="2026-10-09T09:00:00+05:30">9 Oct 2026</time> <span class="dot" aria-hidden="true"></span> 13 min read</p>
+</div>
+<img class="hero" src="/assets/img/dextr-vs-canary-ai-voice-16x9.png" width="1200" height="675" alt="Dextr vs Canary AI Voice: which AI should answer your hotel's phone?" fetchpriority="high">
+<div class="toolbar">
 <div class="listen" data-listen hidden>
-<button type="button" class="listen__play" data-action="toggle" data-state="paused" aria-label="Listen to this article"><svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+<button type="button" class="listen__play" data-action="toggle" data-state="paused" aria-label="Listen to this article"><svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z"/></svg></button>
 <div class="listen__body">
-<p class="listen__title">Listen to this article</p>
-<div class="listen__bar" data-progress role="progressbar" aria-label="Listening progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
-<p class="listen__status" data-status aria-live="polite"></p>
+<span class="listen__title">Listen</span>
+<span class="listen__status" data-status aria-live="polite"></span>
+<span class="listen__bar" data-progress role="progressbar" aria-label="Listening progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></span>
 </div>
 <button type="button" class="listen__speed" data-action="speed" aria-label="Change playback speed">1x</button>
 </div>
 <div class="summarize" role="group" aria-labelledby="summarize-label">
-<p class="summarize__label" id="summarize-label">Summarize with AI</p>
-<div class="summarize__links">
-<a class="summarize__link" href="https://chatgpt.com/?hints=search&amp;q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">ChatGPT</a>
-<a class="summarize__link" href="https://www.perplexity.ai/search/new?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Perplexity</a>
-<a class="summarize__link" href="https://gemini.google.com/app" target="_blank" rel="nofollow noopener" data-copy-prompt="Summarize the key takeaways of this article in 5 bullet points: https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/">Gemini</a>
-<a class="summarize__link" href="https://claude.ai/new?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Claude</a>
-<a class="summarize__link" href="https://grok.com/?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Grok</a>
-<a class="summarize__link" href="https://www.google.com/search?udm=50&amp;q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Google AI Mode</a>
+<span class="summarize__label" id="summarize-label">Summarize with</span>
+<div class="summarize__links"><a class="ai-link" href="https://chatgpt.com/?hints=search&amp;q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener" aria-label="Summarize with ChatGPT" data-tip="ChatGPT"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg></a><a class="ai-link" href="https://www.perplexity.ai/search/new?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener" aria-label="Summarize with Perplexity" data-tip="Perplexity"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M19.785 0v7.272H22.5V17.62h-2.935V24l-7.037-6.194v6.145h-1.091v-6.152L4.392 24v-6.465H1.5V7.188h2.884V0l7.053 6.494V.19h1.09v6.49L19.786 0zm-7.257 9.044v7.319l5.946 5.234V14.44l-5.946-5.397zm-1.099-.08l-5.946 5.398v7.235l5.946-5.234V8.965zm8.136 7.58h1.844V8.349H13.46l6.105 5.54v2.655zm-8.982-8.28H2.59v8.195h1.8v-2.576l6.192-5.62zM5.475 2.476v4.71h5.115l-5.115-4.71zm13.219 0l-5.115 4.71h5.115v-4.71z"></path></svg></a><a class="ai-link" href="https://gemini.google.com/app" target="_blank" rel="nofollow noopener" aria-label="Summarize with Gemini" data-tip="Gemini" data-copy-prompt="Summarize the key takeaways of this article in 5 bullet points: https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z"></path></svg></a><a class="ai-link" href="https://claude.ai/new?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener" aria-label="Summarize with Claude" data-tip="Claude"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z"></path></svg></a><a class="ai-link" href="https://grok.com/?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener" aria-label="Summarize with Grok" data-tip="Grok"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815"></path></svg></a><a class="ai-link" href="https://www.google.com/search?udm=50&amp;q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener" aria-label="Summarize with Google AI Mode" data-tip="Google AI Mode"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M23 12.245c0-.905-.075-1.565-.236-2.25h-10.54v4.083h6.186c-.124 1.014-.797 2.542-2.294 3.569l-.021.136 3.332 2.53.23.022C21.779 18.417 23 15.593 23 12.245z"></path><path d="M12.225 23c3.03 0 5.574-.978 7.433-2.665l-3.542-2.688c-.948.648-2.22 1.1-3.891 1.1a6.745 6.745 0 01-6.386-4.572l-.132.011-3.465 2.628-.045.124C4.043 20.531 7.835 23 12.225 23z"></path><path d="M5.84 14.175A6.65 6.65 0 015.463 12c0-.758.138-1.491.361-2.175l-.006-.147-3.508-2.67-.115.054A10.831 10.831 0 001 12c0 1.772.436 3.447 1.197 4.938l3.642-2.763z"></path><path d="M12.225 5.253c2.108 0 3.529.892 4.34 1.638l3.167-3.031C17.787 2.088 15.255 1 12.225 1 7.834 1 4.043 3.469 2.197 7.062l3.63 2.763a6.77 6.77 0 016.398-4.572z"></path></svg></a></div>
+<span class="summarize__note" data-summarize-note aria-live="polite"></span>
 </div>
-<p class="summarize__note" data-summarize-note aria-live="polite"></p>
 </div>
 </header>
-<p class="quick-verdict"><strong>Quick verdict:</strong> choose Dextr if the phone is where your bookings are won. Its AI takes the call, books the room and sends the deposit payment link before the call ends. Choose Canary if you are rolling out mobile check-in, guest texting and upsells across many hotels and want a phone agent added to that platform.</p>
-<p>Dextr builds AI agents specifically for hospitality. Its AI voice agent, Daisy, answers a property's main phone line day and night. She checks what is available, quotes the rate, books the stay and sends a payment link for the deposit before the call ends.</p>
-<p>Canary Technologies sells a web-based guest management platform: mobile check-in, mobile keys, upsells, guest texting, tipping and payments. In February 2025 it added an AI phone agent called Canary AI Voice.</p>
-<p>Put simply, Canary added a phone agent to its check-in, messaging and upsell platform. Dextr built its AI around the phone call and the hotel work that follows it.</p>
+<div class="quick-verdict">
+<p class="box-label">Quick verdict</p>
+<p>Both answer every call and book stays into your booking software. Dextr is the closer fit if the phone is your main booking channel and you want the deposit requested on the call, or if you run a campground, RV park or rental portfolio. Canary is the closer fit if you want one platform for mobile check-in, digital keys, upsells and guest texting, with a phone agent included.</p>
+</div>
+<p>Dextr builds AI agents for hospitality. Its voice agent, Daisy, answers a property's main line day and night, checks availability, quotes the rate, books the stay and sends a payment link for the deposit before the call ends. Dextr also sells agents for guest messaging, housekeeping and maintenance, marketing and group sales.</p>
+<p>Canary Technologies sells a web-based guest management platform used by more than 20,000 hotels: mobile check-in, mobile keys, upsells, guest texting, tipping and payments. In February 2025 it added an AI phone agent, Canary AI Voice, which Wyndham has rolled out to its franchisees after a pilot at more than 700 hotels.</p>
+<p>The two come from different starting points. Canary added a phone agent to a guest platform. Dextr built its product around the phone call and the hotel work that follows it.</p>
 <aside class="key-takeaways" aria-labelledby="key-takeaways-title">
 <p class="box-title" id="key-takeaways-title">Key takeaways</p>
 <ul>
-<li><strong>Bookings:</strong> both AIs take and change bookings in your booking software. Dextr's Daisy handles cancellations too.</li>
+<li><strong>Bookings:</strong> both take and change bookings in your booking software. Dextr's pages also list cancellations.</li>
 <li><strong>Deposits:</strong> Dextr sends the deposit payment link during the call. Canary handles payment through separate products, such as payment links that hotel staff send by text or email.</li>
-<li><strong>Handoffs:</strong> both pass hard calls to a person with the caller's details. Dextr follows a clear rule: when unsure, hand over rather than guess.</li>
-<li><strong>After the call:</strong> Dextr runs housekeeping and maintenance with its own agent. Canary has no housekeeping or maintenance product; it sends tickets to other companies' tools.</li>
-<li><strong>Outdoor stays:</strong> Dextr has campground and RV park pages and case studies. Canary's site has neither.</li>
+<li><strong>Handoffs:</strong> both pass hard calls to a person with the caller's details captured.</li>
+<li><strong>Beyond the phone:</strong> Canary offers the broader guest-facing suite, including mobile keys and a self-service kiosk. Dextr adds agents for housekeeping, maintenance and staff scheduling.</li>
+<li><strong>Support and scale:</strong> Canary includes 24/7 support and runs at more than 20,000 hotels. Dextr assigns each client a dedicated engineer and an AI strategist.</li>
 </ul>
 </aside>
 
@@ -927,88 +1003,124 @@ tbody tr:last-child > * { border-bottom: 0; }
 <tr><th scope="row">Change or cancel a booking on the call</th><td>Changes and cancellations</td><td>Changes</td></tr>
 <tr><th scope="row">Ask for the deposit during the call</th><td>Yes, sends a payment link before the call ends</td><td>Through Canary's separate payment products, such as Payment Links</td></tr>
 <tr><th scope="row">Hand the caller to a person when unsure</th><td>Yes, with the caller's details</td><td>Yes, with the caller's details</td></tr>
+<tr><th scope="row">Offer upsells on the call</th><td>Yes</td><td>Yes</td></tr>
 <tr><th scope="row">Update a policy</th><td>Describe the change in plain English</td><td>Staff build a knowledge base and rate the AI's answers so it learns</td></tr>
-<tr><th scope="row">Run housekeeping and maintenance</th><td>Yes, with Manny, Dextr's operations agent</td><td>Sends tickets to other companies' tools</td></tr>
+<tr><th scope="row">Guest check-in, keys and tipping</th><td>Check-in and tipping through Alfred, Dextr's messaging agent</td><td>Mobile check-in, mobile keys, kiosk and tipping</td></tr>
+<tr><th scope="row">Housekeeping and maintenance</th><td>Yes, with Manny, Dextr's operations agent</td><td>Sends tickets to partner tools such as Quore and HotSOS</td></tr>
+<tr><th scope="row">Support</th><td>Dedicated engineer and AI strategist; email support</td><td>Onboarding lead, success manager and 24/7 support</td></tr>
 <tr><th scope="row">Keep your phone number and phones</th><td>Yes</td><td>Phones stay; calls forward to a Canary number</td></tr>
 </tbody>
 </table>
 </div>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> both answer the phone and take bookings. The difference is what happens around the booking: Dextr asks for the deposit on the call, hands over carefully and runs the work behind the stay.</p>
+<p class="box-label">Key takeaway</p>
+<p>On the core phone job the two are close. The differences sit around the call: how the deposit is collected, what else each platform covers, and how support works.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="taking-the-booking-dextr-finishes-the-whole-call">
-<h2 id="taking-the-booking-dextr-finishes-the-whole-call">Taking the booking: Dextr finishes the whole call</h2>
+<section class="section" aria-labelledby="taking-a-booking-by-phone">
+<h2 id="taking-a-booking-by-phone">Taking a booking by phone</h2>
 <p>Picture a 90-room hotel at 9:40 pm on a Saturday. A guest calls about two rooms for next Friday, with a dog.</p>
-<p>Daisy answers. She checks availability in your booking software, quotes the rate, answers the pet question from your own policy and books the rooms. Before the call ends she sends a payment link for the deposit, and the booking is confirmed. Nobody on your team picks up the phone.</p>
-<p>Canary's AI Voice also answers around the clock, books the stay and can change an existing booking, and the booking appears in your booking software. It also promotes upsells during calls.</p>
-<p>Dextr's agents offer extras too, across calls, texts and chat: late checkout, firewood or a golf cart. At two properties of a 50-plus property hotel chain, the bookings Dextr's AI took carried 15 to 17% higher average room rates.</p>
+<p>With Dextr, Daisy checks availability in your booking software, quotes the rate, answers the pet question from your own policy and books the rooms. Before the call ends she sends a payment link for the deposit. Dextr's pages also list changes and cancellations among the calls Daisy can complete.</p>
+<p>With Canary, AI Voice also answers around the clock, books the stay and can change an existing booking, and the booking appears in your booking software. Canary says its agent decides when to offer upsells and cross-sells during the call.</p>
+<p>Both offer extras on the call. Dextr lists late checkout, firewood and golf carts as examples. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried 15 to 17% higher average room rates.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> both AIs can book a room. Daisy also handles cancellations and ends the call with the deposit link already sent.</p>
+<p class="box-label">Key takeaway</p>
+<p>Both can take the booking end to end. Dextr documents cancellations as well as changes; Canary documents upsells chosen by the AI.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="getting-paid-dextr-sends-the-deposit-link-before-the-call-ends">
-<h2 id="getting-paid-dextr-sends-the-deposit-link-before-the-call-ends">Getting paid: Dextr sends the deposit link before the call ends</h2>
-<p>A deposit is the money a guest pays upfront to hold a room. Guests who have paid one are less likely to cancel or not show up. The best moment to ask for it is while the guest is still on the phone and ready to commit.</p>
-<p>Dextr does this inside the call. Its AI sends the caller a payment link before the call ends, so the guest can pay the deposit straight away. One family-run RV park took more than $9,474 by phone this way across 39 bookings. Dextr never stores raw card numbers; your payment processor, such as Stripe, secures them.</p>
-<p>Canary collects payment with separate products. Hotel staff create a payment link and send it by text or email, and Canary can also generate links automatically from the booking's rate and status. Canary also offers an online card form and mobile check-in, where the guest adds a card before arrival.</p>
+<section class="section" aria-labelledby="deposits-and-payments">
+<h2 id="deposits-and-payments">Deposits and payments</h2>
+<p>A deposit is the money a guest pays upfront to hold a room. Guests who have paid one are less likely to cancel or not show up, so when and how it is collected matters.</p>
+<p>Dextr asks for it inside the call. Its AI sends the caller a payment link before the call ends, so the guest can pay straight away. One family-run RV park took more than $9,474 by phone this way across 39 bookings. Dextr never stores raw card numbers; your payment processor, such as Stripe, secures them.</p>
+<p>Canary collects payment with dedicated products. Hotel staff create a payment link and send it by text or email, and Canary can generate links automatically from the booking's rate and status. Canary also offers an online card form and mobile check-in, where the guest adds a card before arrival.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> with Dextr, asking for the deposit is part of the phone call. With Canary, the phone agent books the room and Canary's payment products handle the money.</p>
+<p class="box-label">Key takeaway</p>
+<p>Dextr ties the deposit to the phone call. Canary runs payments as their own products that work across every channel, not just the phone.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="when-the-ai-isnt-sure-dextr-hands-over-rather-than-guessing">
-<h2 id="when-the-ai-isnt-sure-dextr-hands-over-rather-than-guessing">When the AI isn't sure: Dextr hands over rather than guessing</h2>
-<p>Every AI phone agent meets questions it should not answer alone, such as a wedding block, a refund or an upset guest. What matters is what it does next.</p>
-<p>Dextr's rule is simple: hand over rather than guess. Daisy answers the questions she is sure of. Borderline ones she still answers, but flags for review. Anything outside what she knows goes to your team. At one RV park, Dextr's AI handed 415 of 1,419 calls and texts to the owners, with the guest's name, dates and request already captured, so they never started from zero.</p>
+<section class="section" aria-labelledby="when-the-ai-cant-answer">
+<h2 id="when-the-ai-cant-answer">When the AI can't answer</h2>
+<p>Every AI phone agent meets questions it should not answer alone, such as a wedding block, a refund or an upset guest. What matters is how it hands over.</p>
+<p>Dextr's stated rule is to hand over rather than guess. Daisy answers what she is sure of, answers borderline questions but flags them for review, and passes anything outside her knowledge to your team. At one RV park, Dextr's AI handed 415 of 1,419 calls and texts to the owners, with the guest's name, dates and request already captured.</p>
 <p>Canary says AI Voice callers are &quot;answered instantly or routed to the right person.&quot; One of its hotels says transferred calls arrive with the guest's details already captured, so staff know who is calling and why.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> both pass hard calls to a person with the details attached. Dextr adds a clear rule: when unsure, hand over.</p>
+<p class="box-label">Key takeaway</p>
+<p>Both pass hard calls to a person with the context attached, so staff never start from zero.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="keeping-it-accurate-dextr-updates-in-plain-english-and-checks-every-call">
-<h2 id="keeping-it-accurate-dextr-updates-in-plain-english-and-checks-every-call">Keeping it accurate: Dextr updates in plain English and checks every call</h2>
-<p>Your rates, policies and road closures change every week. Your AI has to keep up.</p>
-<p>With Dextr, you describe the change in plain English, the way you would brief a new team member. At one RV park, the owners simply told Dextr that dogs over 50 lbs were now allowed, and the voice agent used the new rule on future calls. No support ticket, no engineer, no wait.</p>
-<p>Dextr also checks the work. Every call is scored for tone, guest frustration and outcome, and calls that go wrong are flagged for review. Dextr pairs each client with a dedicated engineer and an AI strategist who keep improving the setup.</p>
-<p>Canary starts with a knowledge base, a store of facts about your hotel, which grows as the AI talks to guests. Staff can rate each AI reply as good or bad, which Canary calls a thumbs up or thumbs down, and the AI learns from those ratings. Staff can also watch conversations live and switch the AI off.</p>
+<section class="section" aria-labelledby="keeping-answers-up-to-date">
+<h2 id="keeping-answers-up-to-date">Keeping answers up to date</h2>
+<p>Rates, policies and road closures change every week, and the AI has to keep up.</p>
+<p>With Dextr, you describe the change in plain English, the way you would brief a new team member. At one RV park, the owners told Dextr that dogs over 50 lbs were now allowed, and the voice agent used the new rule on future calls. Every call is also scored for tone, guest frustration and outcome, and calls that go wrong are flagged for review.</p>
+<p>With Canary, the AI works from a knowledge base, a store of facts about your hotel, which grows as it talks to guests. Staff can rate each AI reply as good or bad, which Canary calls a thumbs up or thumbs down, and the AI learns from those ratings. Staff can also watch conversations live and switch the AI off.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> with Canary, staff rate answers so the AI learns over time. With Dextr, you tell it the new rule in a sentence, and every call is scored.</p>
+<p class="box-label">Key takeaway</p>
+<p>Dextr is updated by instruction and checked call by call. Canary learns from conversations and staff ratings.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="after-the-call-dextr-runs-housekeeping-and-maintenance-too">
-<h2 id="after-the-call-dextr-runs-housekeeping-and-maintenance-too">After the call: Dextr runs housekeeping and maintenance too</h2>
-<p>A booking creates work: a door code, a cleaning task, a pre-arrival message, a late checkout request.</p>
-<p>Dextr has an agent for each part of that work:</p>
-<ul>
-<li><strong>Alfred</strong> answers guest texts across SMS, WhatsApp and the booking sites. Guests can also check in and tip from their own phone.</li>
-<li><strong>Manny</strong> builds the housekeeping board, assigns maintenance jobs and schedules staff from occupancy.</li>
-<li><strong>Cosmo</strong> writes marketing emails and waits for your approval before sending.</li>
-<li><strong>A group sales agent</strong> reads group and event emails and chases missing details.</li>
-<li><strong>DOSS</strong> lets staff run operations by chatting with it in plain language.</li>
-</ul>
-<p>Canary's guest-facing products include mobile check-in, mobile keys, a self-service kiosk, upsells, guest texting, room-service ordering and tipping. It also sells tools for group sales, payments and contracts. For housekeeping and maintenance, Canary's AI turns guest messages into tickets that staff approve and send to other companies' tools, such as Quore and HotSOS.</p>
+<section class="section" aria-labelledby="beyond-the-phone">
+<h2 id="beyond-the-phone">Beyond the phone</h2>
+<p>A booking creates more work: a door code, a cleaning task, a pre-arrival message, a late checkout request. The two companies cover this differently.</p>
+<p>Canary's strength is the guest-facing journey. Its platform includes mobile check-in, tablet registration, a self-service kiosk, mobile keys, upsells, guest texting, room-service ordering, tipping and checkout, plus tools for group sales, payments and contracts. For housekeeping and maintenance, its AI turns guest messages into tickets that staff approve and send to partner tools such as Quore and HotSOS.</p>
+<p>Dextr's strength is the operations side. Alfred answers guest texts across SMS, WhatsApp and the booking sites, and handles check-in and tipping. Manny builds the housekeeping board, assigns maintenance jobs and schedules staff from occupancy. Cosmo writes marketing emails for your approval, a group sales agent works through group and event emails, and DOSS lets staff run operations by chatting in plain language.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> Canary has no housekeeping or maintenance product of its own. Dextr runs that work itself, with Manny.</p>
+<p class="box-label">Key takeaway</p>
+<p>Choose Canary for the widest guest-facing toolkit. Choose Dextr if you also want AI to run housekeeping, maintenance and staff scheduling.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="campgrounds-rv-parks-and-rentals-dextr-is-built-for-them">
-<h2 id="campgrounds-rv-parks-and-rentals-dextr-is-built-for-them">Campgrounds, RV parks and rentals: Dextr is built for them</h2>
+<section class="section" aria-labelledby="booking-system-connections">
+<h2 id="booking-system-connections">Booking-system connections</h2>
+<p>Both connect to the booking software hotels already use, which is what lets the AI read availability and write reservations.</p>
+<p>Dextr lists more than 50 live connections to hotel and rental booking software, including OPERA Cloud, Cloudbeds, Mews, Stayntouch, ResNexus and Hostaway, and says it will build a connection you need.</p>
+<p>Canary connects to about 30 hotel booking systems, including Oracle, Cloudbeds, Mews, Stayntouch, Maestro, Infor and Agilysys, plus central reservation systems used by chains such as SynXis and Amadeus. It says it launches 5 to 10 new integrations a quarter.</p>
+<aside class="takeaway" aria-label="Key takeaway">
+<p class="box-label">Key takeaway</p>
+<p>Both cover the major hotel systems. Dextr adds dozens of vacation-rental systems; Canary adds the central reservation systems chains rely on.</p>
+</aside>
+</section>
+
+<section class="section" aria-labelledby="campgrounds-rv-parks-and-rentals">
+<h2 id="campgrounds-rv-parks-and-rentals">Campgrounds, RV parks and rentals</h2>
 <p>Outdoor stays have their own questions: site types, hookups, pets, firewood, gate codes. Owners are often outside working when the phone rings.</p>
-<p>Dextr has dedicated RV park and campground pages and two outdoor case studies. It connects to ResNexus and RMS Cloud, two of the major campground and RV park systems, and to dozens of vacation-rental systems, including Hostaway. Through RemoteLock, Dextr's agents can resend a guest's access code by call or text.</p>
-<p>Canary has a vacation-rental page and a lakeside resort story near Yosemite. Its site has no campground or RV park pages.</p>
+<p>Dextr has dedicated RV park and campground pages and two outdoor case studies, and connects to ResNexus and RMS Cloud, two of the major campground systems. Through RemoteLock, its agents can resend a guest's access code by call or text.</p>
+<p>Canary has a vacation-rental page that includes AI Voice and a customer story from a lakeside resort near Yosemite. Its site has no campground or RV park pages.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> for hotels, both are options. For campgrounds, RV parks and rentals, Dextr is the one built for the job.</p>
+<p class="box-label">Key takeaway</p>
+<p>For hotels, both are options. For campgrounds and RV parks, Dextr has the more specific product.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="what-a-missed-call-costs-you">
-<h2 id="what-a-missed-call-costs-you">What a missed call costs you</h2>
+<section class="section" aria-labelledby="proof-and-results">
+<h2 id="proof-and-results">Proof and results</h2>
+<p>Both companies publish results, at different scales.</p>
+<p>Dextr publishes property-level case studies. Two properties of a 50-plus property hotel chain saw about $80,000 in extra revenue per property in the first two months, with 70% or more of calls handled start to finish by AI. A family-run RV park grew revenue 34% year on year, with 60% of its revenue credited to the voice agent. A campground saw 94% of 5,110 guest conversations resolved without staff. Property names are changed in these case studies.</p>
+<p>Canary's AI Voice runs on a platform used by more than 20,000 hotels. Wyndham rolled it out to its franchisees after a pilot at more than 700 hotels. At Hotel Zephyr in San Francisco, AI Voice handled more than 800 guest calls in one April.</p>
+<aside class="takeaway" aria-label="Key takeaway">
+<p class="box-label">Key takeaway</p>
+<p>Dextr shows deeper results at individual properties. Canary shows reach and adoption by a major brand.</p>
+</aside>
+</section>
+
+<section class="section" aria-labelledby="setup-support-and-pricing">
+<h2 id="setup-support-and-pricing">Setup, support and pricing</h2>
+<p>With both products, your existing phone system stays in place. Dextr says your number, phones and booking software stay as they are, and you can set how and when the AI answers. Canary says AI Voice works with your existing phone system, with calls forwarded to a Canary number.</p>
+<p>Dextr goes live in about 7 days per property: knowledge upload on day 2, booking software connected on day 3, testing on day 5, live on day 7. Groups go live 3 to 5 properties at a time. Each client gets a dedicated engineer and an AI strategist, and support is by email.</p>
+<p>Canary says its AI tools go live in days, not weeks. Every bundle includes a dedicated onboarding and training lead, ongoing customer-success support and 24/7 support.</p>
+<p>Neither company publishes prices. Dextr charges by use, based on your workflows, property size and volume, and offers a pilot on your toughest property that you can walk away from with no penalty. Canary prices its platform by custom quote; AI Voice is not part of its three listed bundles, so ask for a quote that includes it.</p>
+<aside class="takeaway" aria-label="Key takeaway">
+<p class="box-label">Key takeaway</p>
+<p>Both set up in days and keep your phone system. Canary offers 24/7 support; Dextr offers a dedicated engineer and a walk-away pilot.</p>
+</aside>
+</section>
+
+<section class="section" aria-labelledby="what-a-missed-call-costs">
+<h2 id="what-a-missed-call-costs">What a missed call costs</h2>
 <p>Phone bookings still matter. Canary's own blog puts voice at about 18% of hotel reservations, and Revinate's data shows hotels convert about half (49.9%) of calls from people looking to book.</p>
 <p>Many of those calls are never answered. Canary's AI Voice page says up to 40% of hotel calls go unanswered. In an AHLA survey published in March 2026, more than half of hoteliers said their properties were somewhat or severely understaffed.</p>
 <p>Here is the maths for a hotel taking 60 booking calls a day, using a cautious 25% missed:</p>
@@ -1018,63 +1130,32 @@ tbody tr:last-child > * { border-bottom: 0; }
 <li>At 2 nights and $150 a night: about $2,100 a day</li>
 <li>Over a 30-day month: about $63,000 in bookings at risk</li>
 </ul>
-<p>Swap in your own call volume and rates. The point holds at any size.</p>
-<p>A survey commissioned by Wyndham asked 325 hotel owners and developers across many brands in the US, Canada and the Caribbean about AI. The barriers they named most often were data privacy and security (46%), cost (42%) and connecting AI to older systems (40%). 57% said they need human oversight before AI makes operating decisions.</p>
-<p>Dextr answers each one. It never stores raw card numbers and never uses your hotel's data to train AI models. Its pricing is based on use. It lists more than 50 live connections to hotel and rental booking software. And its AI hands over to a person whenever it is unsure.</p>
+<p>A survey commissioned by Wyndham asked 325 hotel owners and developers across many brands about AI. The barriers they named most often were data privacy and security (46%), cost (42%) and connecting AI to older systems (40%). 57% said they need human oversight before AI makes operating decisions. Ask both vendors how they handle each of these.</p>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> both vendors agree that missed calls cost hotels money. Dextr is built to turn those calls into paid bookings.</p>
+<p class="box-label">Key takeaway</p>
+<p>Whichever you choose, an AI that answers every call pays for itself quickly if your phone still books rooms.</p>
 </aside>
 </section>
 
-<section class="section" aria-labelledby="results-from-dextr-properties">
-<h2 id="results-from-dextr-properties">Results from Dextr properties</h2>
-<div class="table-wrap" role="region" aria-label="Results from Dextr properties" tabindex="0">
+<section class="section" aria-labelledby="which-one-fits-your-property">
+<h2 id="which-one-fits-your-property">Which one fits your property?</h2>
+<div class="table-wrap" role="region" aria-label="Which one fits your property?" tabindex="0">
 <table>
-<caption class="visually-hidden">Results from Dextr properties</caption>
-<thead><tr><th scope="col">Property</th><th scope="col">What changed with Dextr</th></tr></thead>
+<caption class="visually-hidden">Which one fits your property?</caption>
+<thead><tr><th scope="col">If you are…</th><th scope="col">Closer fit</th></tr></thead>
 <tbody>
-<tr><th scope="row">Two properties of a 50-plus property hotel chain</th><td>About $80,000 in extra revenue per property in the first two months; 70% or more of calls handled start to finish by AI</td></tr>
-<tr><th scope="row">Family-run RV park</th><td>Revenue up 34% year on year from March to August; 60% of total revenue credited to the voice agent; 71% of 1,419 conversations resolved without the owners</td></tr>
-<tr><th scope="row">Campground</th><td>5,110 guest conversations, 94% resolved without staff</td></tr>
-<tr><th scope="row">Boutique hotel</th><td>117 calls in 5 days, none missed, $3,225 in bookings</td></tr>
-<tr><th scope="row">Hot springs resort</th><td>Booking rate up from 34% to 51%; about $120,000 a year saved</td></tr>
-</tbody>
-</table>
-</div>
-<p>Property names and locations are changed in these case studies. In some of them the voice agent uses its male voice, Danny.</p>
-<aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> Dextr publishes property-by-property results for its phone and text agents. Canary's public results for AI Voice centre on call volume, such as one hotel's 800-plus calls in a month.</p>
-</aside>
-</section>
-
-<section class="section" aria-labelledby="setup-pricing-and-risk-dextr-adds-a-walk-away-pilot">
-<h2 id="setup-pricing-and-risk-dextr-adds-a-walk-away-pilot">Setup, pricing and risk: Dextr adds a walk-away pilot</h2>
-<p>With both products, your existing phone system stays in place. Dextr says your number, phones and booking software stay as they are. Canary says AI Voice works with your existing phone system, with calls routed to a Canary number. Dextr also lets the hotel set how and when its AI answers.</p>
-<p>Dextr goes live in about 7 days per property: knowledge upload on day 2, booking software connected on day 3, testing on day 5, live on day 7. Groups go live 3 to 5 properties at a time; 12 properties take about 6 weeks. Dextr pairs each client with a dedicated engineer and an AI strategist.</p>
-<p>Canary says its AI tools go live in days, and every bundle includes a dedicated onboarding and training lead and ongoing customer-success support.</p>
-<p>On price, Dextr charges by use: what you pay depends on your workflows, the size of the property and how much the AI does. You can start with a pilot on your toughest property and walk away with no lock-in and no penalty if the numbers don't hold. Canary prices its platform by custom quote, and AI Voice is not part of its three listed bundles.</p>
-<aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> both keep your existing phone system and go live in days. Dextr adds a pilot you can walk away from.</p>
-</aside>
-</section>
-
-<section class="section" aria-labelledby="which-should-you-choose">
-<h2 id="which-should-you-choose">Which should you choose?</h2>
-<div class="table-wrap" role="region" aria-label="Which should you choose?" tabindex="0">
-<table>
-<caption class="visually-hidden">Which should you choose?</caption>
-<thead><tr><th scope="col">If you are…</th><th scope="col">Choose</th></tr></thead>
-<tbody>
-<tr><th scope="row">An independent or franchised hotel where the phone still books the rooms</th><td>Dextr</td></tr>
-<tr><th scope="row">A hotel group whose reservation team can't answer every call</th><td>Dextr</td></tr>
-<tr><th scope="row">A campground, RV park or resort</th><td>Dextr</td></tr>
-<tr><th scope="row">A vacation-rental operator on Hostaway or a similar system</th><td>Dextr</td></tr>
-<tr><th scope="row">A brand rolling out mobile check-in, mobile keys and guest texting across many hotels, with a phone agent added on</th><td>Canary</td></tr>
+<tr><th scope="row">An independent or franchised hotel where the phone is the main booking channel</th><td>Dextr</td></tr>
+<tr><th scope="row">A campground, RV park or vacation-rental operator</th><td>Dextr</td></tr>
+<tr><th scope="row">A property that also wants AI for housekeeping, maintenance and staff scheduling</th><td>Dextr</td></tr>
+<tr><th scope="row">A hotel or brand standardising mobile check-in, digital keys and guest texting</th><td>Canary</td></tr>
+<tr><th scope="row">A group that needs 24/7 vendor support and central reservation system connections</th><td>Canary</td></tr>
+<tr><th scope="row">A Wyndham franchisee</th><td>Canary, already part of Wyndham's rollout</td></tr>
 </tbody>
 </table>
 </div>
 <aside class="takeaway" aria-label="Key takeaway">
-<p><strong>Key takeaway:</strong> Canary is a guest-platform decision. Dextr is a phone decision. If the calls are what you need to fix, choose the AI built for calls.</p>
+<p class="box-label">Key takeaway</p>
+<p>Dextr fits operators who want the phone and the back office handled by AI. Canary fits hotels that want one guest platform with voice included.</p>
 </aside>
 </section>
 
@@ -1082,11 +1163,11 @@ tbody tr:last-child > * { border-bottom: 0; }
 <h2 id="questions-to-ask-in-any-demo">Questions to ask in any demo</h2>
 <ol>
 <li>Can the AI book, change and cancel a stay in my booking software while I watch?</li>
-<li>Can it ask for the deposit before the guest hangs up?</li>
+<li>How does the guest pay the deposit, and when?</li>
 <li>When it isn't sure, what does it do, and what does my team receive?</li>
 <li>How do I change a policy: a sentence, or a support ticket?</li>
 <li>Who checks the calls, and what happens to the ones that go wrong?</li>
-<li>After the booking, who sends the door code and books the cleaning?</li>
+<li>What support do I get after go-live, and at what hours?</li>
 </ol>
 </section>
 
@@ -1094,46 +1175,45 @@ tbody tr:last-child > * { border-bottom: 0; }
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <div class="faq-item">
 <h3 id="what-is-the-main-difference-between-dextr-and-canary-ai-voice">What is the main difference between Dextr and Canary AI Voice?</h3>
-<p>Dextr builds AI for hospitality phone calls and the work behind them. Its voice agent, Daisy, books stays and sends the deposit payment link during the call. Canary AI Voice is the phone agent inside Canary's guest management platform, which also covers mobile check-in, mobile keys, guest messaging, upsells, tipping and payments.</p>
+<p>Dextr builds AI agents around the phone call and hotel operations, and its voice agent sends the deposit payment link during the call. Canary AI Voice is the phone agent inside Canary's guest management platform, which also covers mobile check-in, mobile keys, guest messaging, upsells, tipping and payments.</p>
 </div>
 <div class="faq-item">
-<h3 id="can-daisy-take-a-deposit-on-the-phone">Can Daisy take a deposit on the phone?</h3>
-<p>Yes. Daisy sends the guest a payment link for the deposit before the call ends. Dextr never stores raw card numbers; your payment processor secures them.</p>
+<h3 id="which-is-better-for-a-small-independent-hotel">Which is better for a small independent hotel?</h3>
+<p>Both serve independent hotels. Dextr suits owners whose bookings come mostly by phone and who want deposits requested on the call. Canary suits owners who also want mobile check-in, keys and guest texting from the same vendor.</p>
 </div>
 <div class="faq-item">
-<h3 id="does-dextr-work-with-my-booking-software">Does Dextr work with my booking software?</h3>
-<p>Dextr lists more than 50 live connections to hotel and rental booking software, including OPERA Cloud, Cloudbeds, Mews, Stayntouch, ResNexus and Hostaway. If yours is missing, Dextr will build the connection.</p>
+<h3 id="can-either-take-a-deposit-on-the-phone">Can either take a deposit on the phone?</h3>
+<p>Dextr sends the guest a payment link for the deposit before the call ends. Canary collects payment through its Payment Links and Digital Authorizations products, which staff or the system send by text or email.</p>
 </div>
 <div class="faq-item">
-<h3 id="is-dextr-only-for-small-properties">Is Dextr only for small properties?</h3>
-<p>No. Dextr's customers range from a 21-room lodge to a 550-room property group. Its voice AI also works alongside the reservation team of a 50-plus property hotel chain, as well as at campgrounds, RV parks and rentals.</p>
+<h3 id="do-they-work-with-my-booking-software">Do they work with my booking software?</h3>
+<p>Both connect to the major hotel systems, including Cloudbeds, Mews, Stayntouch and Oracle. Dextr also connects to dozens of vacation-rental systems such as Hostaway. Canary also connects to central reservation systems such as SynXis and Amadeus.</p>
 </div>
 <div class="faq-item">
-<h3 id="when-is-canary-the-better-fit">When is Canary the better fit?</h3>
-<p>Canary fits a brand that wants one platform for mobile check-in, mobile keys, upsells and messaging across many hotels, with a phone agent included. If your priority is answering and converting phone calls, Dextr is built for that.</p>
+<h3 id="which-has-better-support">Which has better support?</h3>
+<p>Canary includes 24/7 support, an onboarding lead and a customer-success manager. Dextr assigns a dedicated engineer and an AI strategist to each client, with support by email.</p>
 </div>
 <div class="faq-item">
 <h3 id="will-guests-know-they-are-talking-to-an-ai">Will guests know they are talking to an AI?</h3>
-<p>Daisy tells callers she is an AI if they ask, and never denies it.</p>
+<p>Dextr says Daisy tells callers she is an AI if they ask, and never denies it. Canary's pages do not cover this, so ask in the demo.</p>
 </div>
 <div class="faq-item">
-<h3 id="how-quickly-can-dextr-be-live">How quickly can Dextr be live?</h3>
-<p>About 7 days after kickoff for one property. Groups go live in waves of 3 to 5 properties.</p>
+<h3 id="how-quickly-can-each-be-live">How quickly can each be live?</h3>
+<p>Dextr plans about 7 days per property. Canary says its AI tools go live in days, not weeks.</p>
 </div>
 </section>
 
-<section class="section section--cta" aria-labelledby="switching-to-dextr-is-easy">
-<h2 id="switching-to-dextr-is-easy">Switching to Dextr is easy</h2>
-<p>A single property goes live about 7 days after kickoff, and you don't have to change what you already use. Dextr says your phone number, your desk phones and your booking software all stay as they are.</p>
-<p>Dextr's team does the setup with you. They learn your policies, connect your booking software and payments, and run real guest scenarios with your team to fine-tune the answers before going live. You decide how and when Dextr answers: all day, after hours or when the desk is busy.</p>
+<section class="section section--cta" aria-labelledby="next-steps">
+<h2 id="next-steps">Next steps</h2>
+<p>Shortlist the one that matches how your property books, then put both through the same test.</p>
 <ul>
-<li><strong>Live in about 7 days</strong> for one property. Groups move 3 to 5 properties at a time.</li>
-<li><strong>Nothing to replace:</strong> same number, same phones, same booking software.</li>
-<li><strong>Tested on real guest scenarios</strong> before it goes live.</li>
-<li><strong>No lock-in on the pilot:</strong> start with your toughest property and walk away with no penalty if the numbers don't hold.</li>
+<li><strong>Run a real call.</strong> Ask each vendor to take a booking, change it and collect the deposit live on your own booking software.</li>
+<li><strong>Check the handoff.</strong> Ask to see exactly what your team receives when the AI passes a call over.</li>
+<li><strong>Compare the whole bill.</strong> Ask what is included: phone agent, other products, support hours and setup.</li>
+<li><strong>Start small.</strong> Pilot on one property before rolling out to the rest.</li>
 </ul>
-<p><strong>Book a demo and see how Daisy would answer your property's calls.</strong></p>
-<p class="cta-actions"><a class="button" href="https://www.dextr.ai/">Book a demo</a></p>
+<p><strong>See both products in action.</strong></p>
+<p class="cta-actions"><a class="pill pill--light" href="https://www.dextr.ai/" rel="noopener" target="_blank">Book a Dextr demo</a><a class="pill pill--ghost" href="https://www.canarytechnologies.com/products/ai-voice-hotels" rel="noopener" target="_blank">Visit Canary Technologies</a></p>
 </section>
 
 <section class="section section--sources" aria-labelledby="sources">
@@ -1175,11 +1255,16 @@ tbody tr:last-child > * { border-bottom: 0; }
 <li><a href="https://www.revinate.com/channels/hotel-voice-reservations-sales/" rel="noopener" target="_blank">Revinate: hotel voice reservations</a></li>
 <li><a href="https://www.ahla.com/news/rising-cost-staffing-challenges-persist-hotels-travel-demand-expected-hold-steady" rel="noopener" target="_blank">AHLA: staffing survey, March 2026</a></li>
 <li><a href="https://corporate.wyndhamhotels.com/?p=6604" rel="noopener" target="_blank">Wyndham: hotel owner AI survey</a></li>
+<li><a href="https://www.canarytechnologies.com/" rel="noopener" target="_blank">Canary: home page and product list</a></li>
+<li><a href="https://www.canarytechnologies.com/integrations" rel="noopener" target="_blank">Canary: integrations</a></li>
+<li><a href="https://www.canarytechnologies.com/press/canary-wyndham-global-ai-voice" rel="noopener" target="_blank">Canary: Wyndham AI Voice rollout</a></li>
+<li><a href="https://www.canarytechnologies.com/customers/the-pines-resort" rel="noopener" target="_blank">Canary: The Pines Resort customer story</a></li>
+<li><a href="https://resources.canarytechnologies.com/contact-canary-support.html" rel="noopener" target="_blank">Canary: customer support</a></li>
 </ol>
 </section>
 <footer class="author-cards" aria-label="About the author and reviewer">
 <div class="person-card" id="author">
-<span class="person-card__avatar" aria-hidden="true">DS</span>
+<span class="avatar" aria-hidden="true">DS</span>
 <div>
 <p class="person-card__role">Written by</p>
 <p class="person-card__name">Deepak Sharma</p>
@@ -1188,9 +1273,9 @@ tbody tr:last-child > * { border-bottom: 0; }
 </div>
 </div>
 <div class="person-card" id="reviewer">
-<span class="person-card__avatar" aria-hidden="true">DR</span>
+<span class="avatar" aria-hidden="true">DR</span>
 <div>
-<p class="person-card__role">Reviewed by &middot; <time datetime="2026-10-09">9 October 2026</time></p>
+<p class="person-card__role">Reviewed by &middot; <time datetime="2026-10-09">9 Oct 2026</time></p>
 <p class="person-card__name">Daniel Reyes</p>
 <p class="person-card__title">Hotel Reservations and Revenue Specialist</p>
 <p class="person-card__bio">Daniel reviews hotel technology comparisons for accuracy on reservations, deposits and front-desk operations.</p>
@@ -1199,31 +1284,9 @@ tbody tr:last-child > * { border-bottom: 0; }
 </footer>
 </article>
 </main>
-<nav class="toc" aria-label="On this page">
-<p class="toc__title">On this page</p>
-<ol>
-<li><a href="#dextr-vs-canary-at-a-glance">Dextr vs Canary at a glance</a></li>
-<li><a href="#taking-the-booking-dextr-finishes-the-whole-call">Taking the booking: Dextr finishes the whole call</a></li>
-<li><a href="#getting-paid-dextr-sends-the-deposit-link-before-the-call-ends">Getting paid: Dextr sends the deposit link before the call ends</a></li>
-<li><a href="#when-the-ai-isnt-sure-dextr-hands-over-rather-than-guessing">When the AI isn't sure: Dextr hands over rather than guessing</a></li>
-<li><a href="#keeping-it-accurate-dextr-updates-in-plain-english-and-checks-every-call">Keeping it accurate: Dextr updates in plain English and checks every call</a></li>
-<li><a href="#after-the-call-dextr-runs-housekeeping-and-maintenance-too">After the call: Dextr runs housekeeping and maintenance too</a></li>
-<li><a href="#campgrounds-rv-parks-and-rentals-dextr-is-built-for-them">Campgrounds, RV parks and rentals: Dextr is built for them</a></li>
-<li><a href="#what-a-missed-call-costs-you">What a missed call costs you</a></li>
-<li><a href="#results-from-dextr-properties">Results from Dextr properties</a></li>
-<li><a href="#setup-pricing-and-risk-dextr-adds-a-walk-away-pilot">Setup, pricing and risk: Dextr adds a walk-away pilot</a></li>
-<li><a href="#which-should-you-choose">Which should you choose?</a></li>
-<li><a href="#questions-to-ask-in-any-demo">Questions to ask in any demo</a></li>
-<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
-<li><a href="#switching-to-dextr-is-easy">Switching to Dextr is easy</a></li>
-<li><a href="#sources">Sources</a></li>
-</ol>
-</nav>
 </div>
 <footer class="site-footer">
-<div class="container">
-<p>© 2026 Deepak Sharma</p>
-</div>
+<div class="container"><p>© 2026 Deepak Sharma</p></div>
 </footer>
 <script>
 // "Listen to this article": reads the post aloud with the browser's built-in speech engine.
@@ -1235,7 +1298,7 @@ tbody tr:last-child > * { border-bottom: 0; }
   if (!player || !article || !('speechSynthesis' in window)) return;
 
   const synth = window.speechSynthesis;
-  const SKIP = '.section--sources, .table-wrap, .byline, .listen, .summarize, .author-cards, .cta-actions, .toc';
+  const SKIP = '.section--sources, .table-wrap, .breadcrumbs, .tags, .byline, .toolbar, .box-label, .box-title, .author-cards, .cta-actions';
   const blocks = [...article.querySelectorAll('h1, h2, h3, p, li')]
     .filter((el) => !el.closest(SKIP) && !el.querySelector('p, li') && el.innerText.trim())
     .map((el) => ({ el, text: el.innerText.replace(/\s+/g, ' ').trim() }));
@@ -1336,6 +1399,23 @@ document.querySelectorAll('[data-copy-prompt]').forEach((link) => {
     if (note) note.textContent = 'Prompt copied. Paste it into Gemini.';
   });
 });
+
+// Sidebar contents: highlight the section currently on screen.
+(() => {
+  const links = new Map([...document.querySelectorAll('.toc a')].map((a) => [a.getAttribute('href').slice(1), a]));
+  if (!links.size || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        links.forEach((a) => a.classList.remove('is-active'));
+        links.get(entry.target.id)?.classList.add('is-active');
+      }
+    },
+    { rootMargin: '-15% 0px -75% 0px' },
+  );
+  links.forEach((_, id) => { const h = document.getElementById(id); if (h) observer.observe(h); });
+})();
 </script>
 </body>
 </html>
