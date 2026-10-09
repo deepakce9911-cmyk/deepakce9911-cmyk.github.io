@@ -218,6 +218,93 @@ tbody tr:last-child > * { border-bottom: 0; }
 .card h2 a { color: var(--ink); text-decoration: none; }
 .card h2 a:hover { text-decoration: underline; }
 .card p { margin-bottom: 0.5rem; }
+
+/* ---------- listen player ---------- */
+
+.listen {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  max-width: var(--measure);
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+}
+.listen[hidden] { display: none; }
+.listen__play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  cursor: pointer;
+}
+.listen__play svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+.listen__play[data-state="paused"] .icon-pause,
+.listen__play[data-state="playing"] .icon-play { display: none; }
+.listen__body { flex: 1; min-width: 0; }
+.listen__title { margin: 0 0 0.35rem; font: 600 0.9375rem/1.2 var(--font-body); color: var(--ink); }
+.listen__bar { height: 0.3rem; background: var(--rule); border-radius: 1rem; overflow: hidden; }
+.listen__bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s ease; }
+.listen__status { margin: 0.35rem 0 0; font: 400 0.75rem/1.2 var(--font-mono); color: var(--muted); }
+.listen__speed {
+  flex: none;
+  min-width: 3.25rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--ink);
+  font: 600 0.8125rem/1 var(--font-mono);
+  cursor: pointer;
+}
+.is-speaking { background: var(--tint); box-shadow: 0 0 0 0.35rem var(--tint); border-radius: 0.25rem; }
+
+/* ---------- summarize with AI ---------- */
+
+.summarize { max-width: var(--measure); margin: 1rem 0 0; }
+.summarize__label { margin: 0 0 0.5rem; font: 700 0.75rem/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.summarize__links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.summarize__link {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.summarize__link:hover { border-color: var(--accent); color: var(--accent-ink); }
+.summarize__note { margin: 0.4rem 0 0; min-height: 1em; font-size: 0.8125rem; color: var(--muted); }
+
+/* ---------- author and reviewer ---------- */
+
+.byline a { color: inherit; }
+.author-cards { display: grid; gap: 1rem; max-width: var(--measure); margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.person-card { display: flex; gap: 1rem; align-items: flex-start; scroll-margin-top: 1rem; }
+.person-card__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--tint);
+  color: var(--accent-ink);
+  font: 800 1.05rem/1 var(--font-display);
+}
+.person-card p { margin: 0; }
+.person-card__role { font: 400 0.75rem/1.4 var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.person-card__name { font: 700 1.0625rem/1.3 var(--font-display); color: var(--ink); }
+.person-card__title { font-size: 0.9375rem; color: var(--muted); margin-bottom: 0.35rem !important; }
+.person-card__bio { font-size: 0.9375rem; }
 </style>
 <script type="application/ld+json">
 {
@@ -269,6 +356,31 @@ tbody tr:last-child > * { border-bottom: 0; }
       }
     },
     {
+      "@type": "Person",
+      "@id": "https://deepakce9911-cmyk.github.io/#person-maya-collins",
+      "name": "Maya Collins",
+      "jobTitle": "Senior Editor, Hotel Technology",
+      "description": "Maya writes about hotel technology, guest communication and AI tools for independent hotels, campgrounds and rental operators.",
+      "knowsAbout": [
+        "Hotel technology",
+        "AI voice agents",
+        "Hotel reservations",
+        "Guest communication"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://deepakce9911-cmyk.github.io/#person-daniel-reyes",
+      "name": "Daniel Reyes",
+      "jobTitle": "Hotel Reservations and Revenue Specialist",
+      "description": "Daniel reviews hotel technology comparisons for accuracy on reservations, deposits and front-desk operations.",
+      "knowsAbout": [
+        "Hotel reservations",
+        "Revenue management",
+        "Front-desk operations"
+      ]
+    },
+    {
       "@type": "WebPage",
       "@id": "https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/#webpage",
       "url": "https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/",
@@ -292,6 +404,10 @@ tbody tr:last-child > * { border-bottom: 0; }
       "mainEntity": {
         "@id": "https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/#article"
       },
+      "reviewedBy": {
+        "@id": "https://deepakce9911-cmyk.github.io/#person-daniel-reyes"
+      },
+      "lastReviewed": "2026-10-09",
       "about": {
         "@id": "https://www.dextr.ai/#daisy"
       },
@@ -344,7 +460,7 @@ tbody tr:last-child > * { border-bottom: 0; }
       "datePublished": "2026-10-09T09:00:00+05:30",
       "dateModified": "2026-10-09T09:00:00+05:30",
       "author": {
-        "@id": "https://deepakce9911-cmyk.github.io/#owner"
+        "@id": "https://deepakce9911-cmyk.github.io/#person-maya-collins"
       },
       "publisher": {
         "@id": "https://deepakce9911-cmyk.github.io/#owner"
@@ -766,7 +882,28 @@ tbody tr:last-child > * { border-bottom: 0; }
 <article>
 <header class="article-header">
 <h1>Dextr vs Canary AI Voice (2026): which AI should answer your hotel's phone?</h1>
-<p class="byline">By Deepak <span aria-hidden="true">&middot;</span> Updated <time datetime="2026-10-09T09:00:00+05:30">9 October 2026</time></p>
+<p class="byline">By <a href="#author">Maya Collins</a> <span aria-hidden="true">&middot;</span> Reviewed by <a href="#reviewer">Daniel Reyes</a> <span aria-hidden="true">&middot;</span> Updated <time datetime="2026-10-09T09:00:00+05:30">9 October 2026</time></p>
+<div class="listen" data-listen hidden>
+<button type="button" class="listen__play" data-action="toggle" data-state="paused" aria-label="Listen to this article"><svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+<div class="listen__body">
+<p class="listen__title">Listen to this article</p>
+<div class="listen__bar" data-progress role="progressbar" aria-label="Listening progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+<p class="listen__status" data-status aria-live="polite"></p>
+</div>
+<button type="button" class="listen__speed" data-action="speed" aria-label="Change playback speed">1x</button>
+</div>
+<div class="summarize" role="group" aria-labelledby="summarize-label">
+<p class="summarize__label" id="summarize-label">Summarize with AI</p>
+<div class="summarize__links">
+<a class="summarize__link" href="https://chatgpt.com/?hints=search&amp;q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">ChatGPT</a>
+<a class="summarize__link" href="https://www.perplexity.ai/search/new?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Perplexity</a>
+<a class="summarize__link" href="https://gemini.google.com/app" target="_blank" rel="nofollow noopener" data-copy-prompt="Summarize the key takeaways of this article in 5 bullet points: https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/">Gemini</a>
+<a class="summarize__link" href="https://claude.ai/new?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Claude</a>
+<a class="summarize__link" href="https://grok.com/?q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Grok</a>
+<a class="summarize__link" href="https://www.google.com/search?udm=50&amp;q=Summarize%20the%20key%20takeaways%20of%20this%20article%20in%205%20bullet%20points%3A%20https%3A%2F%2Fdeepakce9911-cmyk.github.io%2Fblog%2Fdextr-vs-canary-ai-voice%2F" target="_blank" rel="nofollow noopener">Google AI Mode</a>
+</div>
+<p class="summarize__note" data-summarize-note aria-live="polite"></p>
+</div>
 </header>
 <p class="quick-verdict"><strong>Quick verdict:</strong> choose Dextr if the phone is where your bookings are won. Its AI takes the call, books the room and sends the deposit payment link before the call ends. Choose Canary if you are rolling out mobile check-in, guest texting and upsells across many hotels and want a phone agent added to that platform.</p>
 <p>Dextr builds AI agents specifically for hospitality. Its AI voice agent, Daisy, answers a property's main phone line day and night. She checks what is available, quotes the rate, books the stay and sends a payment link for the deposit before the call ends.</p>
@@ -1046,6 +1183,26 @@ tbody tr:last-child > * { border-bottom: 0; }
 <li><a href="https://corporate.wyndhamhotels.com/?p=6604" rel="noopener" target="_blank">Wyndham: hotel owner AI survey</a></li>
 </ol>
 </section>
+<footer class="author-cards" aria-label="About the author and reviewer">
+<div class="person-card" id="author">
+<span class="person-card__avatar" aria-hidden="true">MC</span>
+<div>
+<p class="person-card__role">Written by</p>
+<p class="person-card__name">Maya Collins</p>
+<p class="person-card__title">Senior Editor, Hotel Technology</p>
+<p class="person-card__bio">Maya writes about hotel technology, guest communication and AI tools for independent hotels, campgrounds and rental operators.</p>
+</div>
+</div>
+<div class="person-card" id="reviewer">
+<span class="person-card__avatar" aria-hidden="true">DR</span>
+<div>
+<p class="person-card__role">Reviewed by &middot; <time datetime="2026-10-09">9 October 2026</time></p>
+<p class="person-card__name">Daniel Reyes</p>
+<p class="person-card__title">Hotel Reservations and Revenue Specialist</p>
+<p class="person-card__bio">Daniel reviews hotel technology comparisons for accuracy on reservations, deposits and front-desk operations.</p>
+</div>
+</div>
+</footer>
 </article>
 </main>
 <nav class="toc" aria-label="On this page">
@@ -1074,5 +1231,117 @@ tbody tr:last-child > * { border-bottom: 0; }
 <p>© 2026 Deepak</p>
 </div>
 </footer>
+<script>
+// "Listen to this article": reads the post aloud with the browser's built-in speech engine.
+// Speaks one block at a time (Chrome cuts off long utterances), highlights the block being read,
+// and stays hidden in browsers without speech synthesis.
+(() => {
+  const player = document.querySelector('[data-listen]');
+  const article = document.querySelector('article');
+  if (!player || !article || !('speechSynthesis' in window)) return;
+
+  const synth = window.speechSynthesis;
+  const SKIP = '.section--sources, .table-wrap, .byline, .listen, .summarize, .author-cards, .cta-actions, .toc';
+  const blocks = [...article.querySelectorAll('h1, h2, h3, p, li')]
+    .filter((el) => !el.closest(SKIP) && !el.querySelector('p, li') && el.innerText.trim())
+    .map((el) => ({ el, text: el.innerText.replace(/\s+/g, ' ').trim() }));
+  const words = (s) => s.split(' ').length;
+  const totalWords = blocks.reduce((n, b) => n + words(b.text), 0);
+  const WORDS_PER_MINUTE = 170;
+
+  const playButton = player.querySelector('[data-action="toggle"]');
+  const speedButton = player.querySelector('[data-action="speed"]');
+  const bar = player.querySelector('[data-progress]');
+  const fill = player.querySelector('[data-progress] span');
+  const status = player.querySelector('[data-status]');
+  const speeds = [1, 1.25, 1.5, 0.75];
+
+  let index = 0;
+  let speed = 1;
+  let playing = false;
+  let voice = null;
+
+  const minutes = (n) => Math.max(1, Math.round(n / (WORDS_PER_MINUTE * speed)));
+  const pickVoice = () => {
+    const voices = synth.getVoices().filter((v) => /^en(-|_)/i.test(v.lang));
+    voice = voices.find((v) => /natural|neural|google|samantha|aria|jenny/i.test(v.name)) ?? voices[0] ?? null;
+  };
+  pickVoice();
+  synth.addEventListener?.('voiceschanged', pickVoice);
+
+  function render() {
+    const done = blocks.slice(0, index).reduce((n, b) => n + words(b.text), 0);
+    const pct = Math.round((done / totalWords) * 100);
+    fill.style.width = `${pct}%`;
+    bar.setAttribute('aria-valuenow', String(pct));
+    status.textContent = playing ? `${minutes(totalWords - done)} min left` : index ? `Paused · ${minutes(totalWords - done)} min left` : `${minutes(totalWords)} min listen`;
+    playButton.setAttribute('aria-label', playing ? 'Pause' : 'Listen to this article');
+    playButton.dataset.state = playing ? 'playing' : 'paused';
+    speedButton.textContent = `${speed}x`;
+  }
+
+  function highlight(el) {
+    article.querySelectorAll('.is-speaking').forEach((n) => n.classList.remove('is-speaking'));
+    if (!el) return;
+    el.classList.add('is-speaking');
+    const box = el.getBoundingClientRect();
+    if (box.top < 80 || box.bottom > window.innerHeight - 40) el.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
+
+  function speakCurrent() {
+    if (index >= blocks.length) {
+      playing = false;
+      index = 0;
+      highlight(null);
+      return render();
+    }
+    const { el, text } = blocks[index];
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = speed;
+    if (voice) utterance.voice = voice;
+    utterance.onend = () => {
+      if (!playing) return;
+      index += 1;
+      render();
+      speakCurrent();
+    };
+    highlight(el);
+    synth.speak(utterance);
+  }
+
+  function play() {
+    playing = true;
+    synth.cancel();
+    render();
+    speakCurrent();
+  }
+
+  function pause() {
+    playing = false;
+    synth.cancel();
+    render();
+  }
+
+  playButton.addEventListener('click', () => (playing ? pause() : play()));
+  speedButton.addEventListener('click', () => {
+    speed = speeds[(speeds.indexOf(speed) + 1) % speeds.length];
+    if (playing) play();
+    else render();
+  });
+  window.addEventListener('pagehide', () => synth.cancel());
+
+  render();
+  player.hidden = false;
+})();
+
+// "Summarize with AI": Gemini cannot take a prompt in its link, so copy the prompt before opening it.
+document.querySelectorAll('[data-copy-prompt]').forEach((link) => {
+  link.addEventListener('click', () => {
+    navigator.clipboard?.writeText(link.dataset.copyPrompt).catch(() => {});
+    const note = document.querySelector('[data-summarize-note]');
+    if (note) note.textContent = 'Prompt copied. Paste it into Gemini.';
+  });
+});
+</script>
 </body>
 </html>

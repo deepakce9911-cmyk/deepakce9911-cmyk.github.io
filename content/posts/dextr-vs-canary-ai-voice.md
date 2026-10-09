@@ -5,6 +5,28 @@
   "description": "Dextr vs Canary AI Voice compared on bookings, deposits, handoffs, campgrounds and setup. See which AI phone agent fits your hotel, with real results.",
   "datePublished": "2026-10-09",
   "dateModified": "2026-10-09",
+  "lastReviewed": "2026-10-09",
+  "author": {
+    "name": "Maya Collins",
+    "jobTitle": "Senior Editor, Hotel Technology",
+    "bio": "Maya writes about hotel technology, guest communication and AI tools for independent hotels, campgrounds and rental operators.",
+    "knowsAbout": [
+      "Hotel technology",
+      "AI voice agents",
+      "Hotel reservations",
+      "Guest communication"
+    ]
+  },
+  "reviewer": {
+    "name": "Daniel Reyes",
+    "jobTitle": "Hotel Reservations and Revenue Specialist",
+    "bio": "Daniel reviews hotel technology comparisons for accuracy on reservations, deposits and front-desk operations.",
+    "knowsAbout": [
+      "Hotel reservations",
+      "Revenue management",
+      "Front-desk operations"
+    ]
+  },
   "section": "Comparisons",
   "breadcrumb": "Dextr vs Canary AI Voice",
   "keywords": [

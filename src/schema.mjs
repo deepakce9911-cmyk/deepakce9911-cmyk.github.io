@@ -1,7 +1,7 @@
 // JSON-LD for each page, emitted as one @graph so every node can point at the others by @id.
 //
-// Included: WebSite, WebPage (with speakable), ImageObject, Article (with citations), BreadcrumbList,
-// the site owner (Person or Organization), Dextr's Organization, SoftwareApplication for Dextr's
+// Included: WebSite, WebPage (with speakable, reviewedBy and lastReviewed), ImageObject, Article (with citations),
+// BreadcrumbList, the post's author and reviewer (Person), the site owner (Person or Organization), Dextr's Organization, SoftwareApplication for Dextr's
 // voice agent and for the competitor, FAQPage, ItemList and DefinedTermSet. Hub pages add
 // CollectionPage and ItemList. Every node mirrors text that is visible on the page.
 //
@@ -60,6 +60,13 @@ function siteNodes(site, env) {
   return { owner, nodes };
 }
 
+/** Author and reviewer of a post, defined in its front matter. */
+function personNode(person, id) {
+  return { '@type': 'Person', '@id': id, name: person.name, jobTitle: person.jobTitle, description: person.bio, knowsAbout: person.knowsAbout };
+}
+
+const personId = (siteUrl, name) => `${siteUrl}/#person-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+
 function softwareNode(app, publisher) {
   return {
     '@type': 'SoftwareApplication',
@@ -89,9 +96,13 @@ export function articleGraph({ page, site, env, wordCount }) {
   const id = (name) => `${pageUrl}#${name}`;
   const { owner, nodes } = siteNodes(site, env);
   const og = IMAGE_SIZES[0];
+  const authorId = meta.author ? personId(env.siteUrl, meta.author.name) : owner.id;
+  const reviewerId = meta.reviewer ? personId(env.siteUrl, meta.reviewer.name) : null;
+  const people = [meta.author && personNode(meta.author, authorId), meta.reviewer && personNode(meta.reviewer, reviewerId)].filter(Boolean);
 
   const graph = [
     ...nodes,
+    ...people,
     {
       '@type': 'WebPage',
       '@id': id('webpage'),
@@ -106,6 +117,7 @@ export function articleGraph({ page, site, env, wordCount }) {
       dateModified: meta.dateModified,
       breadcrumb: { '@id': id('breadcrumb') },
       mainEntity: { '@id': id('article') },
+      ...(reviewerId && { reviewedBy: { '@id': reviewerId }, lastReviewed: meta.lastReviewed ?? meta.dateModified }),
       about: { '@id': meta.subject.id },
       mentions: { '@id': id('competitor') },
       speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.quick-verdict', '.key-takeaways'] },
@@ -134,7 +146,7 @@ export function articleGraph({ page, site, env, wordCount }) {
       image: IMAGE_SIZES.slice(1).map((s) => imageUrl(env.siteUrl, meta.image.base, s.suffix)),
       datePublished: meta.datePublished,
       dateModified: meta.dateModified,
-      author: { '@id': owner.id },
+      author: { '@id': authorId },
       publisher: { '@id': owner.id },
       mainEntityOfPage: { '@id': id('webpage') },
       isPartOf: { '@id': id('webpage') },

@@ -17,6 +17,7 @@ src/
   schema.mjs            JSON-LD @graph for posts, the blog index and the home page
   template.mjs          HTML documents: head, header, breadcrumbs, article, footer
   styles/main.css       the stylesheet, inlined into every page
+  scripts/listen.js     the listen player and the Gemini copy button, inlined into posts
   seo-check.mjs         on-page SEO and structured-data checks
   og-image.mjs          renders social images from src/og/card.html
   serve.mjs             local server that behaves like GitHub Pages
@@ -41,7 +42,7 @@ Publish a change: edit `content/posts/*.md`, run `npm run build && npm run check
 
 ## Writing a post
 
-Front matter (JSON between `---` lines) holds the title tag, meta description, dates, keywords, image, and the products the post is about. The Markdown body uses a few conventions:
+Front matter (JSON between `---` lines) holds the title tag, meta description, dates, keywords, image, the author and reviewer (name, job title, short bio), and the products the post is about. The Markdown body uses a few conventions:
 
 - `**Quick verdict:** ...` as the first paragraph: the answer readers and AI engines see first
 - `> **Key takeaways**` followed by bullets: the summary box under the intro
@@ -50,13 +51,18 @@ Front matter (JSON between `---` lines) holds the title tag, meta description, d
 - `## Questions to ask ...` with a numbered list: also emitted as an ItemList
 - `## Sources` with `- Label https://url` bullets: rendered as links and listed as Article citations
 
+## Reader features
+
+- **Listen to this article.** The browser's built-in speech engine reads the post aloud. It highlights the paragraph being read and offers 0.75x to 1.5x speed. The player stays hidden in browsers that cannot speak.
+- **Summarize with AI.** Buttons open ChatGPT, Perplexity, Claude, Grok and Google AI Mode with a summary prompt for the post. Gemini cannot take a prompt in its link, so its button copies the prompt first.
+
 ## Structured data
 
 Every page carries one JSON-LD `@graph`. Nodes point at each other by `@id`, and each one mirrors text that is visible on the page.
 
 | Page | Types |
 |---|---|
-| Post | WebSite, Person (author and publisher), Organization (Dextr), WebPage with speakable, ImageObject, Article with citations, BreadcrumbList, SoftwareApplication (Daisy and Canary AI Voice), FAQPage, ItemList, DefinedTermSet |
+| Post | WebSite, Person (site owner, author and reviewer), Organization (Dextr), WebPage with speakable, reviewedBy and lastReviewed, ImageObject, Article with citations, BreadcrumbList, SoftwareApplication (Daisy and Canary AI Voice), FAQPage, ItemList, DefinedTermSet |
 | Blog index | WebSite, Person, Organization, CollectionPage, ItemList, BreadcrumbList |
 | Home | WebSite, Person, Organization, ProfilePage |
 

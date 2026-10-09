@@ -10,6 +10,7 @@ const FONTS =
 
 // The stylesheet is small, so it is inlined: no extra request blocks the first paint.
 const CSS = readFileSync(new URL('./styles/main.css', import.meta.url), 'utf8').trim();
+const SCRIPT = readFileSync(new URL('./scripts/listen.js', import.meta.url), 'utf8').trim();
 
 const robots = (env) =>
   env.indexable ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' : 'noindex, nofollow';
@@ -126,6 +127,9 @@ export function articleDocument({ page, site, env, root, body, schema }) {
     { name: meta.breadcrumb },
   ];
   const toc = page.sections.map((s) => `<li><a href="#${s.id}">${escapeHtml(s.title)}</a></li>`).join('\n');
+  const byline = meta.author
+    ? `By <a href="#author">${escapeHtml(meta.author.name)}</a>${meta.reviewer ? ` <span aria-hidden="true">&middot;</span> Reviewed by <a href="#reviewer">${escapeHtml(meta.reviewer.name)}</a>` : ''}`
+    : escapeHtml(env.byline);
 
   const bodyHtml = `${siteHeader({ env, root, crumbs })}
 <div class="container layout">
@@ -133,11 +137,14 @@ export function articleDocument({ page, site, env, root, body, schema }) {
 <article>
 <header class="article-header">
 <h1>${escapeHtml(page.h1)}</h1>
-<p class="byline">${escapeHtml(env.byline)} <span aria-hidden="true">&middot;</span> Updated <time datetime="${meta.dateModified}">${formatDate(meta.dateModified)}</time></p>
+<p class="byline">${byline} <span aria-hidden="true">&middot;</span> Updated <time datetime="${meta.dateModified}">${formatDate(meta.dateModified)}</time></p>
+${listenPlayer()}
+${summarizeBar(url)}
 </header>
 ${body.intro}
 
 ${body.sections}
+${authorCards(meta)}
 </article>
 </main>
 <nav class="toc" aria-label="On this page">
@@ -147,8 +154,74 @@ ${toc}
 </ol>
 </nav>
 </div>
-${siteFooter(env)}`;
+${siteFooter(env)}
+<script>
+${SCRIPT}
+</script>`;
   return document({ site, headHtml, bodyHtml });
+}
+
+// ---------- article widgets ----------
+
+const PLAY_ICON = '<svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+const PAUSE_ICON = '<svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>';
+
+/** Hidden until the script confirms the browser can speak (see src/scripts/listen.js). */
+function listenPlayer() {
+  return `<div class="listen" data-listen hidden>
+<button type="button" class="listen__play" data-action="toggle" data-state="paused" aria-label="Listen to this article">${PLAY_ICON}${PAUSE_ICON}</button>
+<div class="listen__body">
+<p class="listen__title">Listen to this article</p>
+<div class="listen__bar" data-progress role="progressbar" aria-label="Listening progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+<p class="listen__status" data-status aria-live="polite"></p>
+</div>
+<button type="button" class="listen__speed" data-action="speed" aria-label="Change playback speed">1x</button>
+</div>`;
+}
+
+function summarizeBar(url) {
+  const prompt = `Summarize the key takeaways of this article in 5 bullet points: ${url}`;
+  const q = encodeURIComponent(prompt);
+  const tools = [
+    { name: 'ChatGPT', href: `https://chatgpt.com/?hints=search&q=${q}` },
+    { name: 'Perplexity', href: `https://www.perplexity.ai/search/new?q=${q}` },
+    { name: 'Gemini', href: 'https://gemini.google.com/app', copy: prompt },
+    { name: 'Claude', href: `https://claude.ai/new?q=${q}` },
+    { name: 'Grok', href: `https://grok.com/?q=${q}` },
+    { name: 'Google AI Mode', href: `https://www.google.com/search?udm=50&q=${q}` },
+  ];
+  const links = tools
+    .map((t) => `<a class="summarize__link" href="${escapeHtml(t.href)}" target="_blank" rel="nofollow noopener"${t.copy ? ` data-copy-prompt="${escapeHtml(t.copy)}"` : ''}>${t.name}</a>`)
+    .join('\n');
+  return `<div class="summarize" role="group" aria-labelledby="summarize-label">
+<p class="summarize__label" id="summarize-label">Summarize with AI</p>
+<div class="summarize__links">
+${links}
+</div>
+<p class="summarize__note" data-summarize-note aria-live="polite"></p>
+</div>`;
+}
+
+const initials = (name) => name.split(/\s+/).map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+
+function personCard(person, id, role) {
+  return `<div class="person-card" id="${id}">
+<span class="person-card__avatar" aria-hidden="true">${escapeHtml(initials(person.name))}</span>
+<div>
+<p class="person-card__role">${role}</p>
+<p class="person-card__name">${escapeHtml(person.name)}</p>
+<p class="person-card__title">${escapeHtml(person.jobTitle)}</p>
+<p class="person-card__bio">${escapeHtml(person.bio)}</p>
+</div>
+</div>`;
+}
+
+function authorCards(meta) {
+  if (!meta.author) return '';
+  return `<footer class="author-cards" aria-label="About the author and reviewer">
+${personCard(meta.author, 'author', 'Written by')}
+${meta.reviewer ? personCard(meta.reviewer, 'reviewer', `Reviewed by &middot; <time datetime="${meta.lastReviewed ?? meta.dateModified}">${formatDate(meta.lastReviewed ?? meta.dateModified)}</time>`) : ''}
+</footer>`;
 }
 
 function listingImage(env, pages) {
