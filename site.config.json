@@ -19,17 +19,17 @@
       "siteUrl": "https://deepakce9911-cmyk.github.io",
       "outDir": "docs",
       "indexable": false,
-      "siteName": "Deepak",
+      "siteName": "Deepak Sharma",
       "owner": {
         "type": "Person",
-        "name": "Deepak",
+        "name": "Deepak Sharma",
         "url": "https://github.com/deepakce9911-cmyk",
         "sameAs": [
           "https://github.com/deepakce9911-cmyk"
         ]
       },
       "brand": {
-        "label": "Deepak",
+        "label": "Deepak Sharma",
         "href": "/"
       },
       "headerLink": {
@@ -37,19 +37,19 @@
         "href": "/blog/"
       },
       "banner": null,
-      "byline": "By Deepak",
-      "footer": "© 2026 Deepak",
+      "byline": "By Deepak Sharma",
+      "footer": "© 2026 Deepak Sharma",
       "hub": {
         "slug": "/blog/",
         "name": "Blog",
-        "title": "Blog | Deepak",
+        "title": "Blog | Deepak Sharma",
         "heading": "Blog",
         "description": "Comparisons and guides on hotel technology, search and AI, written for owners choosing their next tool."
       },
       "home": {
-        "title": "Deepak | Hotel tech, search and AI",
-        "heading": "Deepak",
-        "description": "Deepak writes comparisons and guides on hotel technology, search and AI, for owners choosing their next tool."
+        "title": "Deepak Sharma | Hotel tech, search and AI",
+        "heading": "Deepak Sharma",
+        "description": "Deepak Sharma writes comparisons and guides on hotel technology, search and AI, for owners choosing their next tool."
       },
       "icon": "/favicon.svg"
     },

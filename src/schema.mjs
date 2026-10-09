@@ -96,9 +96,12 @@ export function articleGraph({ page, site, env, wordCount }) {
   const id = (name) => `${pageUrl}#${name}`;
   const { owner, nodes } = siteNodes(site, env);
   const og = IMAGE_SIZES[0];
-  const authorId = meta.author ? personId(env.siteUrl, meta.author.name) : owner.id;
+  // If the author is the site owner, the owner's Person node carries the author details (one person, one node).
+  const authorIsOwner = meta.author && owner.node?.name === meta.author.name;
+  const authorId = !meta.author || authorIsOwner ? owner.id : personId(env.siteUrl, meta.author.name);
   const reviewerId = meta.reviewer ? personId(env.siteUrl, meta.reviewer.name) : null;
-  const people = [meta.author && personNode(meta.author, authorId), meta.reviewer && personNode(meta.reviewer, reviewerId)].filter(Boolean);
+  if (authorIsOwner) Object.assign(nodes.find((n) => n['@id'] === owner.id), { jobTitle: meta.author.jobTitle, description: meta.author.bio, knowsAbout: meta.author.knowsAbout });
+  const people = [meta.author && !authorIsOwner && personNode(meta.author, authorId), meta.reviewer && personNode(meta.reviewer, reviewerId)].filter(Boolean);
 
   const graph = [
     ...nodes,

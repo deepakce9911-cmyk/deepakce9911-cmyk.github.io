@@ -7,9 +7,9 @@
   "dateModified": "2026-10-09",
   "lastReviewed": "2026-10-09",
   "author": {
-    "name": "Maya Collins",
+    "name": "Deepak Sharma",
     "jobTitle": "Senior Editor, Hotel Technology",
-    "bio": "Maya writes about hotel technology, guest communication and AI tools for independent hotels, campgrounds and rental operators.",
+    "bio": "Deepak writes about hotel technology, guest communication and AI tools for independent hotels, campgrounds and rental operators.",
     "knowsAbout": [
       "Hotel technology",
       "AI voice agents",
