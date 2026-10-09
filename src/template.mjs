@@ -1,11 +1,15 @@
 // HTML document shells. Head order: charset, viewport, title, description, robots, canonical,
 // social tags, icons, fonts, stylesheet, structured data.
 
+import { readFileSync } from 'node:fs';
 import { escapeHtml } from './markdown.mjs';
 import { IMAGE_SIZES, imageUrl } from './schema.mjs';
 
 const FONTS =
   'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&family=Sora:wght@700;800&display=swap';
+
+// The stylesheet is small, so it is inlined: no extra request blocks the first paint.
+const CSS = readFileSync(new URL('./styles/main.css', import.meta.url), 'utf8').trim();
 
 const robots = (env) =>
   env.indexable ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' : 'noindex, nofollow';
@@ -48,8 +52,12 @@ function head({ env, root, title, description, url, ogType = 'website', image, e
     `<link rel="icon" href="${env.icon}"${env.icon.endsWith(".svg") ? " type=\"image/svg+xml\"" : ""}>`,
     '<link rel="preconnect" href="https://fonts.googleapis.com">',
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-    `<link rel="stylesheet" href="${FONTS}">`,
-    `<link rel="stylesheet" href="${root}assets/css/main.css">`,
+    `<link rel="preload" as="style" href="${FONTS}">`,
+    `<link rel="stylesheet" href="${FONTS}" media="print" onload="this.media='all'">`,
+    `<noscript><link rel="stylesheet" href="${FONTS}"></noscript>`,
+    `<style>
+${CSS}
+</style>`,
     '<script type="application/ld+json">',
     JSON.stringify(schema, null, 2),
     '</script>',

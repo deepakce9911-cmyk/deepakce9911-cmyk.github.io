@@ -112,7 +112,6 @@ export function articleGraph({ page, site, env, wordCount }) {
       potentialAction: { '@type': 'ReadAction', target: [pageUrl] },
       hasPart: [
         page.faqs.length && { '@id': id('faq') },
-        page.demoQuestions.length && { '@id': id('demo-questions') },
         meta.definedTerms?.length && { '@id': id('terms') },
       ].filter(Boolean),
     },

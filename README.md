@@ -16,10 +16,11 @@ src/
   markdown.mjs          the small Markdown renderer
   schema.mjs            JSON-LD @graph for posts, the blog index and the home page
   template.mjs          HTML documents: head, header, breadcrumbs, article, footer
+  styles/main.css       the stylesheet, inlined into every page
   seo-check.mjs         on-page SEO and structured-data checks
   og-image.mjs          renders social images from src/og/card.html
   serve.mjs             local server that behaves like GitHub Pages
-static/                 copied as-is: CSS, images, favicon
+static/                 copied as-is: images and favicon
 site.config.json        site settings per environment
 docs/                   the built site that GitHub Pages serves (do not edit by hand)
 ```
