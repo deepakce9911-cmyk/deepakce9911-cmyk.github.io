@@ -208,7 +208,7 @@ Canary has a vacation-rental page that includes AI Voice and a customer story fr
 
 Both companies publish results, at different scales.
 
-Dextr's results are measured property by property. Two properties of a 50-plus property hotel chain saw about $80,000 in extra revenue per property in the first two months, with 70% or more of calls handled start to finish by AI. A family-run RV park grew revenue 34% year on year, with 60% of its revenue credited to the voice agent. A campground saw 94% of 5,110 guest conversations resolved without staff. Property names are changed in these case studies.
+Dextr's results are measured property by property. Two properties of a 50-plus property hotel chain saw [about $80,000 in extra revenue per property](https://www.dextr.ai/case-studies/reservation-contact-centers/) in the first two months, with [70% or more of calls handled start to finish by AI](https://www.dextr.ai/case-studies/reservation-contact-centers/). A family-run RV park [grew revenue 34% year on year](https://www.dextr.ai/case-studies/elis-retreat-rv-park/), with [60% of its revenue credited to the voice agent](https://www.dextr.ai/case-studies/elis-retreat-rv-park/). A campground saw [94% of 5,110 guest conversations resolved without staff](https://www.dextr.ai/case-studies/las-pinos-campground/). Property names are changed in these case studies.
 
 Canary's AI Voice runs on a platform used by more than 20,000 hotels. Wyndham rolled it out to its franchisees after a pilot at more than 700 hotels. At Hotel Zephyr in San Francisco, AI Voice handled more than 800 guest calls in one April.
 
