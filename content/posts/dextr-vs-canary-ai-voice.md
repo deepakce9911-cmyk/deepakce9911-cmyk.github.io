@@ -140,25 +140,25 @@ With Dextr, Daisy checks availability in your booking software, quotes the rate,
 
 With Canary, AI Voice also answers around the clock, books the stay and can change an existing booking, and the booking appears in your booking software. Canary says its agent decides when to offer upsells and cross-sells during the call.
 
-Both offer extras on the call. Dextr offers extras such as late checkout, firewood and golf carts. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried [15 to 17% higher average room rates](https://www.dextr.ai/case-studies/reservation-contact-centers/).
+Both offer extras on the call. Daisy times extras to the moment in the call, such as late checkout, firewood and golf carts. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried [15 to 17% higher average room rates](https://www.dextr.ai/case-studies/reservation-contact-centers/).
 
-> **Key takeaway:** both can take the booking end to end. Daisy also handles cancellations; Canary's AI chooses when to offer upsells.
+> **Key takeaway:** both take the booking end to end and time their upsells during the call. Daisy also handles cancellations on the same call.
 
 ## Deposits and payments
 
 A deposit is the money a guest pays upfront to hold a room. Guests who have paid one are less likely to cancel or not show up, so when and how it is collected matters.
 
-Dextr asks for it inside the call. Its AI sends the caller a payment link before the call ends, so the guest can pay straight away. One family-run RV park took more than $9,474 by phone this way across 39 bookings. Dextr never stores raw card numbers; your payment processor, such as Stripe, secures them.
+Dextr asks for it inside the call. Its AI sends the caller a payment link before the call ends, so the guest can pay straight away. One family-run RV park [took more than $9,474 by phone across 39 bookings](https://www.dextr.ai/case-studies/elis-retreat-rv-park/) this way. Dextr never stores raw card numbers; your payment processor, such as Stripe, secures them.
 
 Canary collects payment with dedicated products. Hotel staff create a payment link and send it by text or email, and Canary can generate links automatically from the booking's rate and status. Canary also offers an online card form and mobile check-in, where the guest adds a card before arrival.
 
-> **Key takeaway:** Dextr ties the deposit to the phone call. Canary runs payments as their own products that work across every channel, not just the phone.
+> **Key takeaway:** with Daisy, the deposit is requested before the guest hangs up, so the booking is secured on the same call. Canary's voice agent books the room, and payment follows later through its separate payment tools.
 
 ## When the AI can't answer
 
 Every AI phone agent meets questions it should not answer alone, such as a wedding block, a refund or an upset guest. What matters is how it hands over.
 
-Dextr's rule is to hand over rather than guess. Daisy answers what she is sure of, answers borderline questions but flags them for review, and passes anything outside her knowledge to your team. At one RV park, Dextr's AI handed 415 of 1,419 calls and texts to the owners, with the guest's name, dates and request already captured.
+Dextr's rule is to hand over rather than guess. Daisy answers what she is sure of, answers borderline questions but flags them for review, and passes anything outside her knowledge to your team.
 
 Canary says AI Voice callers are "answered instantly or routed to the right person." One of its hotels says transferred calls arrive with the guest's details already captured, so staff know who is calling and why.
 
@@ -168,7 +168,7 @@ Canary says AI Voice callers are "answered instantly or routed to the right pers
 
 Rates, policies and road closures change every week, and the AI has to keep up.
 
-With Dextr, you describe the change in plain English, the way you would brief a new team member. At one RV park, the owners told Dextr that dogs over 50 lbs were now allowed, and the voice agent used the new rule on future calls. Every call is also scored for tone, guest frustration and outcome, and calls that go wrong are flagged for review.
+With Dextr, you describe the change in plain English, the way you would brief a new team member. At one RV park, the owners told Dextr that [dogs over 50 lbs were now allowed](https://www.dextr.ai/case-studies/elis-retreat-rv-park/), and the voice agent used the new rule on future calls. Every call is also scored for tone, guest frustration and outcome, and calls that go wrong are flagged for review.
 
 With Canary, the AI works from a knowledge base, a store of facts about your hotel, which grows as it talks to guests. Staff can rate each AI reply as good or bad, which Canary calls a thumbs up or thumbs down, and the AI learns from those ratings. Staff can also watch conversations live and switch the AI off.
 
