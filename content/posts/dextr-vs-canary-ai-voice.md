@@ -124,7 +124,7 @@ The two come from different starting points. Canary added a phone agent to a gue
 | Ask for the deposit during the call | Yes, sends a payment link before the call ends | Through Canary's separate payment products, such as Payment Links |
 | Hand the caller to a person when unsure | Yes, with the caller's details | Yes, with the caller's details |
 | Offer upsells on the call | Yes | Yes |
-| Update a policy | Describe the change in plain English | Staff build a knowledge base and rate the AI's answers so it learns |
+| Keep answers up to date | Knowledge base from your policies; update it in plain English; learns from failed calls | Knowledge base that grows from conversations; staff rate answers so it learns |
 | Guest check-in, keys and tipping | Check-in and tipping through Alfred, Dextr's messaging agent | Mobile check-in, mobile keys, kiosk and tipping |
 | Housekeeping and maintenance | Yes, with Manny, Dextr's operations agent | Sends tickets to partner tools such as Quore and HotSOS |
 | Support | Dedicated engineer and AI strategist; email support | Onboarding lead, success manager and 24/7 support |
@@ -168,11 +168,11 @@ Canary says AI Voice callers are "answered instantly or routed to the right pers
 
 Rates, policies and road closures change every week, and the AI has to keep up.
 
-With Dextr, you describe the change in plain English, the way you would brief a new team member. At one RV park, the owners told Dextr that [dogs over 50 lbs were now allowed](https://www.dextr.ai/case-studies/elis-retreat-rv-park/), and the voice agent used the new rule on future calls. Every call is also scored for tone, guest frustration and outcome, and calls that go wrong are flagged for review.
+With Dextr, Daisy answers from a knowledge base built from your own policies and FAQs during setup. To change it, you describe the change in plain English, the way you would brief a new team member. At one RV park, the owners told Dextr that [dogs over 50 lbs were now allowed](https://www.dextr.ai/case-studies/elis-retreat-rv-park/), and the voice agent used the new rule on future calls. Every call is scored for tone, guest frustration and outcome, calls that go wrong are flagged for review, and the agent learns from every failed call.
 
 With Canary, the AI works from a knowledge base, a store of facts about your hotel, which grows as it talks to guests. Staff can rate each AI reply as good or bad, which Canary calls a thumbs up or thumbs down, and the AI learns from those ratings. Staff can also watch conversations live and switch the AI off.
 
-> **Key takeaway:** Dextr is updated by instruction and checked call by call. Canary learns from conversations and staff ratings.
+> **Key takeaway:** both answer from a knowledge base about your property and improve over time. With Daisy, you update it in a sentence and every call is scored; Canary relies on conversations and staff ratings.
 
 ## Beyond the phone
 
