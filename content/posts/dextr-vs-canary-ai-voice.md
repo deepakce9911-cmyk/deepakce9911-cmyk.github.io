@@ -108,7 +108,7 @@ Canary Technologies sells a web-based guest management platform used by more tha
 The two come from different starting points. Canary added a phone agent to a guest platform. Dextr built its product around the phone call and the hotel work that follows it.
 
 > **Key takeaways**
-> - **Bookings:** both take and change bookings in your booking software. Dextr's pages also list cancellations.
+> - **Bookings:** both take and change bookings in your booking software. Dextr's Daisy also cancels them.
 > - **Deposits:** Dextr sends the deposit payment link during the call. Canary handles payment through separate products, such as payment links that hotel staff send by text or email.
 > - **Handoffs:** both pass hard calls to a person with the caller's details captured.
 > - **Beyond the phone:** Canary offers the broader guest-facing suite, including mobile keys and a self-service kiosk. Dextr adds agents for housekeeping, maintenance and staff scheduling.
@@ -136,13 +136,13 @@ The two come from different starting points. Canary added a phone agent to a gue
 
 Picture a 90-room hotel at 9:40 pm on a Saturday. A guest calls about two rooms for next Friday, with a dog.
 
-With Dextr, Daisy checks availability in your booking software, quotes the rate, answers the pet question from your own policy and books the rooms. Before the call ends she sends a payment link for the deposit. Dextr's pages also list changes and cancellations among the calls Daisy can complete.
+With Dextr, Daisy checks availability in your booking software, quotes the rate, answers the pet question from your own policy and books the rooms. Before the call ends she sends a payment link for the deposit. Daisy can also change or cancel an existing booking on the same call.
 
 With Canary, AI Voice also answers around the clock, books the stay and can change an existing booking, and the booking appears in your booking software. Canary says its agent decides when to offer upsells and cross-sells during the call.
 
-Both offer extras on the call. Dextr lists late checkout, firewood and golf carts as examples. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried 15 to 17% higher average room rates.
+Both offer extras on the call. Dextr offers extras such as late checkout, firewood and golf carts. At two properties of a 50-plus property hotel chain, bookings taken by Dextr's AI carried 15 to 17% higher average room rates.
 
-> **Key takeaway:** both can take the booking end to end. Dextr documents cancellations as well as changes; Canary documents upsells chosen by the AI.
+> **Key takeaway:** both can take the booking end to end. Daisy also handles cancellations; Canary's AI chooses when to offer upsells.
 
 ## Deposits and payments
 
@@ -158,7 +158,7 @@ Canary collects payment with dedicated products. Hotel staff create a payment li
 
 Every AI phone agent meets questions it should not answer alone, such as a wedding block, a refund or an upset guest. What matters is how it hands over.
 
-Dextr's stated rule is to hand over rather than guess. Daisy answers what she is sure of, answers borderline questions but flags them for review, and passes anything outside her knowledge to your team. At one RV park, Dextr's AI handed 415 of 1,419 calls and texts to the owners, with the guest's name, dates and request already captured.
+Dextr's rule is to hand over rather than guess. Daisy answers what she is sure of, answers borderline questions but flags them for review, and passes anything outside her knowledge to your team. At one RV park, Dextr's AI handed 415 of 1,419 calls and texts to the owners, with the guest's name, dates and request already captured.
 
 Canary says AI Voice callers are "answered instantly or routed to the right person." One of its hotels says transferred calls arrive with the guest's details already captured, so staff know who is calling and why.
 
@@ -188,7 +188,7 @@ Dextr's strength is the operations side. Alfred answers guest texts across SMS, 
 
 Both connect to the booking software hotels already use, which is what lets the AI read availability and write reservations.
 
-Dextr lists more than 50 live connections to hotel and rental booking software, including OPERA Cloud, Cloudbeds, Mews, Stayntouch, ResNexus and Hostaway, and says it will build a connection you need.
+Dextr has more than 50 live connections to hotel and rental booking software, including OPERA Cloud, Cloudbeds, Mews, Stayntouch, ResNexus and Hostaway, and builds new connections on request.
 
 Canary connects to about 30 hotel booking systems, including Oracle, Cloudbeds, Mews, Stayntouch, Maestro, Infor and Agilysys, plus central reservation systems used by chains such as SynXis and Amadeus. It says it launches 5 to 10 new integrations a quarter.
 
@@ -208,7 +208,7 @@ Canary has a vacation-rental page that includes AI Voice and a customer story fr
 
 Both companies publish results, at different scales.
 
-Dextr publishes property-level case studies. Two properties of a 50-plus property hotel chain saw about $80,000 in extra revenue per property in the first two months, with 70% or more of calls handled start to finish by AI. A family-run RV park grew revenue 34% year on year, with 60% of its revenue credited to the voice agent. A campground saw 94% of 5,110 guest conversations resolved without staff. Property names are changed in these case studies.
+Dextr's results are measured property by property. Two properties of a 50-plus property hotel chain saw about $80,000 in extra revenue per property in the first two months, with 70% or more of calls handled start to finish by AI. A family-run RV park grew revenue 34% year on year, with 60% of its revenue credited to the voice agent. A campground saw 94% of 5,110 guest conversations resolved without staff. Property names are changed in these case studies.
 
 Canary's AI Voice runs on a platform used by more than 20,000 hotels. Wyndham rolled it out to its franchisees after a pilot at more than 700 hotels. At Hotel Zephyr in San Francisco, AI Voice handled more than 800 guest calls in one April.
 
@@ -216,7 +216,7 @@ Canary's AI Voice runs on a platform used by more than 20,000 hotels. Wyndham ro
 
 ## Setup, support and pricing
 
-With both products, your existing phone system stays in place. Dextr says your number, phones and booking software stay as they are, and you can set how and when the AI answers. Canary says AI Voice works with your existing phone system, with calls forwarded to a Canary number.
+With both products, your existing phone system stays in place. With Dextr, your number, phones and booking software stay as they are, and you set how and when the AI answers. Canary says AI Voice works with your existing phone system, with calls forwarded to a Canary number.
 
 Dextr goes live in about 7 days per property: knowledge upload on day 2, booking software connected on day 3, testing on day 5, live on day 7. Groups go live 3 to 5 properties at a time. Each client gets a dedicated engineer and an AI strategist, and support is by email.
 
@@ -283,7 +283,7 @@ Both connect to the major hotel systems, including Cloudbeds, Mews, Stayntouch a
 Canary includes 24/7 support, an onboarding lead and a customer-success manager. Dextr assigns a dedicated engineer and an AI strategist to each client, with support by email.
 
 ### Will guests know they are talking to an AI?
-Dextr says Daisy tells callers she is an AI if they ask, and never denies it. Canary's pages do not cover this, so ask in the demo.
+Daisy tells callers she is an AI if they ask, and never denies it. Canary's pages do not cover this, so ask in the demo.
 
 ### How quickly can each be live?
 Dextr plans about 7 days per property. Canary says its AI tools go live in days, not weeks.
