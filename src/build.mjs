@@ -19,13 +19,18 @@ export function loadSite(envName) {
   return { site, env: { ...env, name: envName } };
 }
 
-export function loadPages(env) {
+// Google wants full date-times with a timezone; posts store plain dates, so add the site's publish time.
+const toDateTime = (site, date) => (date.includes('T') ? date : `${date}T${site.publishTime}${site.timezone}`);
+
+export function loadPages(env, site = loadSite(env.name).site) {
   const dir = join(ROOT, 'content', 'posts');
   return readdirSync(dir)
     .filter((f) => f.endsWith('.md'))
     .map((f) => {
       const page = loadPage(readFileSync(join(dir, f), 'utf8'));
       page.meta.slug = `${env.hub.slug}${page.meta.name}/`;
+      page.meta.datePublished = toDateTime(site, page.meta.datePublished);
+      page.meta.dateModified = toDateTime(site, page.meta.dateModified);
       return page;
     })
     .sort((a, b) => b.meta.datePublished.localeCompare(a.meta.datePublished));
@@ -56,7 +61,7 @@ export function build(envName) {
   mkdirSync(outDir, { recursive: true });
 
   cpSync(join(ROOT, 'static'), outDir, { recursive: true });
-  const pages = loadPages(env);
+  const pages = loadPages(env, site);
 
   for (const page of pages) {
     const schema = articleGraph({ page, site, env, wordCount: wordCount(page) });

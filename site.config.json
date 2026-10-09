@@ -1,5 +1,7 @@
 {
   "language": "en-US",
+  "timezone": "+05:30",
+  "publishTime": "09:00:00",
   "dextr": {
     "id": "https://www.dextr.ai/#organization",
     "name": "Dextr AI",
