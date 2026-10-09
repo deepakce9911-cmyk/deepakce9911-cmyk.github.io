@@ -1,0 +1,21 @@
+{
+  "name": "deepakce9911-cmyk.github.io",
+  "private": true,
+  "type": "module",
+  "description": "Deepak's personal site: search and content work, starting with a comparison page written for Dextr AI.",
+  "scripts": {
+    "build": "node src/build.mjs --env personal",
+    "build:production": "node src/build.mjs --env production",
+    "check": "node src/seo-check.mjs --env personal",
+    "check:production": "node src/seo-check.mjs --env production",
+    "check:links": "node src/seo-check.mjs --env personal --links",
+    "og": "node src/og-image.mjs",
+    "serve": "node src/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.12.0"
+  }
+}

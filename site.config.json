@@ -1,0 +1,83 @@
+{
+  "language": "en-US",
+  "dextr": {
+    "id": "https://www.dextr.ai/#organization",
+    "name": "Dextr AI",
+    "legalName": "Dextr, Inc.",
+    "url": "https://www.dextr.ai/",
+    "logo": "https://www.dextr.ai/img/dextr-logo.svg",
+    "email": "support@dextr.ai",
+    "sameAs": [
+      "https://www.linkedin.com/company/dextr-ai-automation/"
+    ]
+  },
+  "environments": {
+    "personal": {
+      "description": "Deepak's personal blog on GitHub Pages.",
+      "siteUrl": "https://deepakce9911-cmyk.github.io",
+      "outDir": "docs",
+      "indexable": false,
+      "siteName": "Deepak",
+      "owner": {
+        "type": "Person",
+        "name": "Deepak",
+        "url": "https://github.com/deepakce9911-cmyk",
+        "sameAs": [
+          "https://github.com/deepakce9911-cmyk"
+        ]
+      },
+      "brand": {
+        "label": "Deepak",
+        "href": "/"
+      },
+      "headerLink": {
+        "label": "Blog",
+        "href": "/blog/"
+      },
+      "banner": null,
+      "byline": "By Deepak",
+      "footer": "© 2026 Deepak",
+      "hub": {
+        "slug": "/blog/",
+        "name": "Blog",
+        "title": "Blog | Deepak",
+        "heading": "Blog",
+        "description": "Comparisons and guides on hotel technology, search and AI, written for owners choosing their next tool."
+      },
+      "home": {
+        "title": "Deepak | Hotel tech, search and AI",
+        "heading": "Deepak",
+        "description": "Deepak writes comparisons and guides on hotel technology, search and AI, for owners choosing their next tool."
+      },
+      "icon": "/favicon.svg"
+    },
+    "production": {
+      "description": "Build for publishing on dextr.ai itself.",
+      "siteUrl": "https://www.dextr.ai",
+      "outDir": "dist",
+      "indexable": true,
+      "siteName": "Dextr AI",
+      "owner": "dextr",
+      "brand": {
+        "label": "dextr.",
+        "href": "https://www.dextr.ai/"
+      },
+      "headerLink": {
+        "label": "Book a demo",
+        "href": "https://www.dextr.ai/"
+      },
+      "banner": null,
+      "byline": "By the Dextr team",
+      "footer": "© 2026 Dextr, Inc.",
+      "hub": {
+        "slug": "/compare/",
+        "name": "Compare",
+        "title": "Compare Dextr AI | Dextr",
+        "heading": "Compare Dextr AI",
+        "description": "Head-to-head comparisons of Dextr's AI agents with other hotel AI tools."
+      },
+      "home": null,
+      "icon": "https://www.dextr.ai/img/favicon/favicon-32x32.png"
+    }
+  }
+}
