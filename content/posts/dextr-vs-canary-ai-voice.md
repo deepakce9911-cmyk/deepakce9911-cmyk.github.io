@@ -108,14 +108,13 @@ Put simply, Canary added a phone agent to its check-in, messaging and upsell pla
 | What you need | Dextr (Daisy) | Canary AI Voice |
 |---|---|---|
 | Answer every call, day and night | Yes | Yes |
-| Book a stay into your booking software | Yes, after checking availability and rates | Yes, the booking appears in your system |
+| Book a stay into your booking software | Yes | Yes |
 | Change or cancel a booking on the call | Changes and cancellations | Changes |
 | Ask for the deposit during the call | Yes, sends a payment link before the call ends | Through Canary's separate payment products, such as Payment Links |
-| Hand the caller to a person when unsure | Anything it can't answer goes to your team, with the guest's details captured | Routes the call to the right person, with the caller's details |
+| Hand the caller to a person when unsure | Yes, with the caller's details | Yes, with the caller's details |
 | Update a policy | Describe the change in plain English | Staff build a knowledge base and rate the AI's answers so it learns |
 | Run housekeeping and maintenance | Yes, with Manny, Dextr's operations agent | Sends tickets to other companies' tools |
-| Campgrounds and RV parks | Dedicated pages and case studies | No campground or RV park pages |
-| Your phone setup | Number, phones and booking software stay as they are | Phone system stays; calls are routed to a Canary number |
+| Keep your phone number and phones | Yes | Phones stay; calls forward to a Canary number |
 
 > **Key takeaway:** both answer the phone and take bookings. The difference is what happens around the booking: Dextr asks for the deposit on the call, hands over carefully and runs the work behind the stay.
 
