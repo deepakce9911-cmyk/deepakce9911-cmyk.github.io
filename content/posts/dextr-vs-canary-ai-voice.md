@@ -99,7 +99,7 @@
 
 # Dextr vs Canary AI Voice (2026): which AI should answer your hotel's phone?
 
-**Quick verdict:** both answer every call and book stays into your booking software. Dextr is the closer fit if the phone is your main booking channel and you want the deposit requested on the call, or if you run a campground, RV park or rental portfolio. Canary is the closer fit if you want one platform for mobile check-in, digital keys, upsells and guest texting, with a phone agent included.
+**Quick verdict:** Dextr is a dedicated AI voice agent for hotels: its agent, Daisy, is built to answer the phone, book the stay and send the deposit link before the call ends. Canary AI Voice is a voice layer on Canary's wider guest platform, which also covers mobile check-in, digital keys, upsells and guest texting. Choose Dextr if the phone is your main booking channel, or if you run a campground, RV park or rental portfolio. Choose Canary if you want one platform for the whole guest journey, with voice included.
 
 Dextr builds AI agents for hospitality. Its voice agent, Daisy, answers a property's main line day and night, checks availability, quotes the rate, books the stay and sends a payment link for the deposit before the call ends. Dextr also sells agents for guest messaging, housekeeping and maintenance, marketing and group sales.
 
