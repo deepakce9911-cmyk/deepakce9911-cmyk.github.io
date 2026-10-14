@@ -2,7 +2,8 @@
 //
 // Included: WebSite, WebPage (with speakable, reviewedBy and lastReviewed), ImageObject, Article (with citations),
 // BreadcrumbList, the post's author and reviewer (Person), the site owner (Person or Organization), Dextr's Organization, SoftwareApplication for Dextr's
-// voice agent and for the competitor, FAQPage, ItemList and DefinedTermSet. Hub pages add
+// voice agent and for the competitor (or for every product in a ranked list, plus that list as an ItemList),
+// FAQPage, ItemList and DefinedTermSet. Hub pages add
 // CollectionPage and ItemList. Every node mirrors text that is visible on the page.
 //
 // Left out on purpose (see README): AggregateRating and Review (Google does not allow rating your own
@@ -103,6 +104,15 @@ export function articleGraph({ page, site, env, wordCount }) {
   if (authorIsOwner) Object.assign(nodes.find((n) => n['@id'] === owner.id), { jobTitle: meta.author.jobTitle, description: meta.author.bio, knowsAbout: meta.author.knowsAbout });
   const people = [meta.author && !authorIsOwner && personNode(meta.author, authorId), meta.reviewer && personNode(meta.reviewer, reviewerId)].filter(Boolean);
 
+  // A post compares either one competitor (meta.competitor) or a ranked list of products (meta.list).
+  // List entries that are Dextr's own product reuse the subject node; every other entry gets its own node.
+  const productId = (entry) => entry.id ?? id(`product-${entry.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`);
+  const listEntries = meta.list ?? [];
+  const mentioned = [
+    ...(meta.competitor ? [{ '@id': id('competitor') }] : []),
+    ...listEntries.filter((e) => productId(e) !== meta.subject.id).map((e) => ({ '@id': productId(e) })),
+  ];
+
   const graph = [
     ...nodes,
     ...people,
@@ -122,7 +132,7 @@ export function articleGraph({ page, site, env, wordCount }) {
       mainEntity: { '@id': id('article') },
       ...(reviewerId && { reviewedBy: { '@id': reviewerId }, lastReviewed: meta.lastReviewed ?? meta.dateModified }),
       about: { '@id': meta.subject.id },
-      mentions: { '@id': id('competitor') },
+      ...(mentioned.length && { mentions: mentioned }),
       speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.quick-verdict', '.key-takeaways'] },
       potentialAction: { '@type': 'ReadAction', target: [pageUrl] },
       hasPart: [
@@ -158,7 +168,7 @@ export function articleGraph({ page, site, env, wordCount }) {
       wordCount,
       inLanguage: site.language,
       about: [{ '@id': meta.subject.id }],
-      mentions: [{ '@id': id('competitor') }, { '@id': site.dextr.id }],
+      mentions: [...mentioned, { '@id': site.dextr.id }],
       citation: page.sources.map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
     },
     breadcrumbNode(id('breadcrumb'), [
@@ -167,11 +177,24 @@ export function articleGraph({ page, site, env, wordCount }) {
       { name: meta.breadcrumb, url: pageUrl },
     ]),
     softwareNode(meta.subject, { '@id': site.dextr.id }),
-    {
-      ...softwareNode(meta.competitor, { '@type': 'Organization', name: meta.competitor.publisher.name, url: meta.competitor.publisher.url }),
-      '@id': id('competitor'),
-    },
+    ...(meta.competitor
+      ? [{ ...softwareNode(meta.competitor, { '@type': 'Organization', name: meta.competitor.publisher.name, url: meta.competitor.publisher.url }), '@id': id('competitor') }]
+      : []),
+    ...listEntries
+      .filter((e) => productId(e) !== meta.subject.id)
+      .map((e) => ({ ...softwareNode(e, { '@type': 'Organization', name: e.publisher.name, url: e.publisher.url }), '@id': productId(e) })),
   ];
+
+  if (listEntries.length) {
+    graph.push({
+      '@type': 'ItemList',
+      '@id': id('ranked-list'),
+      name: meta.listName ?? meta.breadcrumb,
+      numberOfItems: listEntries.length,
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      itemListElement: listEntries.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.listLabel ?? e.name, item: { '@id': productId(e) } })),
+    });
+  }
 
   if (page.faqs.length) {
     graph.push({

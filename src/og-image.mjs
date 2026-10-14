@@ -23,7 +23,8 @@ async function loadPuppeteer() {
 const puppeteer = await loadPuppeteer();
 
 const { env } = loadSite('personal');
-const pages = loadPages(env);
+const only = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : null;
+const pages = loadPages(env).filter((p) => !only || p.meta.name === only);
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true });
 try {
   const tab = await browser.newPage();
@@ -32,6 +33,15 @@ try {
     for (const size of IMAGE_SIZES) {
       await tab.setViewport({ width: size.width, height: size.height });
       await tab.goto(card, { waitUntil: 'networkidle0' });
+      // Each post can set its own card words in front matter: image.card { eyebrow, titleHtml, sub, foot }.
+      if (page.meta.image.card) {
+        await tab.evaluate((c) => {
+          if (c.eyebrow) document.getElementById('eyebrow').textContent = c.eyebrow;
+          if (c.titleHtml) document.getElementById('title').innerHTML = c.titleHtml;
+          if (c.sub) document.getElementById('sub').textContent = c.sub;
+          if (c.foot) document.getElementById('foot').textContent = c.foot;
+        }, page.meta.image.card);
+      }
       await tab.evaluate(() => document.fonts.ready);
       const out = join(ROOT, 'static', `${page.meta.image.base.replace(/^\//, '')}-${size.suffix}.png`);
       mkdirSync(dirname(out), { recursive: true });

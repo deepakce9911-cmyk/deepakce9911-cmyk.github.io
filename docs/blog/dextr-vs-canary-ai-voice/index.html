@@ -322,6 +322,19 @@ tbody tr:last-child > * { border-bottom: 0; }
   .summarize__note { text-align: left; }
   .section--cta { padding: 1.5rem 1.25rem; }
 }
+
+/* Text for screen readers only (table captions). */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -423,9 +436,11 @@ tbody tr:last-child > * { border-bottom: 0; }
       "about": {
         "@id": "https://www.dextr.ai/#daisy"
       },
-      "mentions": {
-        "@id": "https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/#competitor"
-      },
+      "mentions": [
+        {
+          "@id": "https://deepakce9911-cmyk.github.io/blog/dextr-vs-canary-ai-voice/#competitor"
+        }
+      ],
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
